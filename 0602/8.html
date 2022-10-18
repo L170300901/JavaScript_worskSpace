@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        window.onload = function () {
+            document.f.b.onclick = f;
+        }
+        function f() {
+            var str = document.f.txt.value;
+            var optionTag = document.createElement("option");
+            optionTag.innerHTML = str;
+            document.f.sel.add(optionTag, 0);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>::: 개설된 과목리스트 :::</h1>
+    <form name="f">
+        <select size=10 name="sel">
+            <option>XML</option>
+            <option>JSP</option>
+            <option>Javascript</option>
+            <option>Jquery</option>
+        </select>
+        <input type="text" name="txt">
+        <input type="button" value="과목추가" name="b">
+    </form>
+</body>
+
+</html>

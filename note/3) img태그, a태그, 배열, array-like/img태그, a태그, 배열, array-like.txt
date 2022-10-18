@@ -1,0 +1,391 @@
+# 3장 이미지와 하이퍼링크
+이미지삽입 img 100p, 새책(95p)
+링크만들기 a 113p, 새책(106p) 
+
+[ex]
+<ol>
+<li><a href="http://www.seoulit.co.kr">서울IT</a></li>
+<li><a href="http://www.naver.com">네이버</a></li>
+<li><a href="http://www.daum.net"><img src="download.png"></a></li>
+</ol> 
+
+문서내연결  116p, 새책(110p) 
+[ex]
+<!DOCTYPE html>
+<html>
+<body>
+    <ol>
+        <li><a href="#con1">문서내연결1</a></li>
+        <li><a href="#con2">문서내연결2</a></li>
+        <li><a href="#con3">문서내연결3</a></li>
+    </ol>
+    <script>
+    for(var a=0; a<30; a++) document.write("<br/>");    
+    </script>
+    <div id="con1">문서1연결될곳</div>
+    <div style="text-align:right;"><a href="#top">TOP</a></div>
+    <hr/>
+    <script>
+        for(var a=0; a<30; a++) document.write("<br/>");    
+    </script>
+    <div id="con2">문서2연결될곳</div>
+    <div style="text-align:right;"><a href="#top">TOP</a></div>
+    <hr/>
+    <script>
+            for(var a=0; a<30; a++) document.write("<br/>");    
+    </script>
+    <div id="con3">문서3연결될곳</div>
+    <div style="text-align:right;"><a href="#top">TOP</a></div>
+    <hr/>
+</body>
+</html>
+
+
+[ex] css의 문단정렬
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { 
+            border:1px solid navy; 
+            width:50px; height:50px;
+        }
+        </style>
+</head>
+<body>
+        <table>
+        <tr>
+        <td style="text-align:right">1</td>
+        <td style="text-align:center">2</td>
+        </tr>
+        <tr>
+        <td>3</td>
+        <td style="text-align:center">4</td>
+        </tr>
+        </table>    
+</body>
+</html>
+
+이미지맵 123p, 새책(119p)
+
+# 4장 폼관련태그 
+폼요소에 레이블 붙이기 label 146p, 새책(138p)
+[ex]
+<input type="checkbox">체크박스1
+<label><input type="checkbox">체크박스2</label>
+
+폼요소 그룹으로 묶기 fieldset, legend 147p, 새책(139p)
+
+[ex]
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>filedset과 legend 태그</title>
+  <style>
+   ul {
+    list-style:none;
+   }
+   li {
+    margin:20px;
+   }
+   li label {
+    width:80px;
+    float:left;
+   }
+   fieldset {
+    margin:15px;
+   }
+  </style>
+</head>
+<body>
+ <form>
+  <fieldset>
+   <legend>개인 정보</legend>
+   <ul>
+    <li>
+     <label for="name">이름</label>
+     <input type="text" id="name">
+    </li>
+    <li>
+     <label for="mail">메일 주소</label>
+     <input type="text" id="mail">
+    </li>
+   </ul>
+  </fieldset>  
+  <fieldset>
+   <legend>로그인 정보</legend>
+   <ul>
+    <li>
+     <label for="id">아이디</label>
+     <input type="text" id="id">
+    </li>
+    <li>
+     <label for="pwd">비밀번호</label>
+     <input type="text" id="pwd">
+    </li>
+   </ul>
+  </fieldset>
+ </form>
+</body>
+</html>
+
+
+[ex] 1부터 10까지의 숫자가 출력되는 10줄1칸 테이블을 생성하세요~
+<head>
+<style>
+td { border:1px solid navy; }
+</style>
+</head>
+<body>
+<table>
+<script>
+for(a=1; a<11; a++){
+document.write("<tr><td>"+a+"</td></tr>");
+}
+</script>
+</table>
+</body>
+
+
+[ex]
+<head>
+<style>
+td { 
+border-width:1px;
+border-style:solid;
+border-color:navy; 
+}
+</style>
+</head>
+<body>
+<table>
+<script>
+for(a=1; a<11; a++){
+document.write("<tr><td>"+a+"</td></tr>");
+}
+</script>
+</table>
+</body>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+    td { border:1px solid navy; }
+    .s1 { border-style:dashed; }
+    </style>
+</head>
+<body>
+    <table>
+        <script>
+        for(a=1; a<11; a++){
+            cName= a%2==0 ? "s1" : "";
+            document.write("<tr>");
+            document.write("<td class="+cName+">"+a+"</td>");
+            document.write("</tr>");
+        }
+        </script>
+        </table>
+</body>
+</html>
+ 
+
+# 자바스크립트의 배열
+
+[ex] 자바스크립트는 배열요소의 자료형 동일하지 않아도 됩니다.
+<body>
+<script>
+a=[10,20,"ab",30];
+document.write(a[0]+"<br/>");
+document.write(a[1]+"<br/>");
+document.write(a[2]+"<br/>");
+</script>
+</body>
+
+[ex] 배열의길이구하기
+<body>
+<script>
+a=[10,20,"ab",30];
+b=[40,50];
+document.write(a.length+"<br/>");
+document.write(b.length+"<br/>");
+</script>
+</body>
+
+
+[ex] 자바스크립트의 2차원배열
+<body>
+<script>
+a=[10, 20, [40,50] , 30];
+document.write(a[2][0]+"<br/>");
+document.write(a[2][1]+"<br/>");
+</script>
+</body>
+
+[ex]
+<body>
+<script>
+obj={ "a":100, "b":"abc", "c":[10,20] };
+document.write(obj.a +"<br/>"); // 100
+document.write(obj["b"] +"<br/>"); // abc
+document.write(obj.c[0] +"<br/>"); // 10
+document.write(obj["c"][1] +"<br/>"); // 10
+</script>
+</body>
+
+[ex]  
+<body>
+<script>
+a=[10,20,30,40,50];
+size=a.length;
+for(b=0; b<size; b++)
+document.write(a[b] +"<br/>"); 
+</script>
+</body>
+
+
+[ex]
+<script>
+a=[99,100,50,78];
+total=0;
+total=total+a[0];
+total=total+a[1];
+total=total+a[2];
+total=total+a[3];
+document.write("총점:"+total); 
+</script>
+</body>
+
+
+[ex]
+<script>
+a=[99,100,50,78];
+total=0;
+size=a.length;
+for(b=0; b<size; b++)
+total=total+a[b];
+document.write("총점:"+total); 
+</script>
+
+# for~in
+
+for(변수명  in 배열 또는 array-like){
+}
+
+[sy]  for(index in 배열){
+ 
+ }
+[sy]  for(key in array-like){
+ 
+ }
+
+
+[ex]
+<body>
+<script>
+a=[10,20,30];
+for(index in a)
+document.write(a[index]+"<br/>");
+</script>
+</body>
+
+[ex] 
+<body>
+<script>
+obj={ "a":100, "b":"abc", "c":200 };
+for(key in obj)
+document.write(obj[key]+"<br/>");
+</script>
+</body>
+
+
+[ex] 아래와 같이 출력될 수 있도록 ol태그를 
+이용해서 소스코드를 작성하세요~
+
+1 동물
+ a 기린
+ b 토끼
+ c 코끼리
+ d 사자
+2 꽃
+ a 장미
+ b 튤립
+ c 데이지
+[an]
+<ol>
+<li>동물
+ <ol type="a">
+ <li>기린</li>
+ <li>사자</li>
+ <li>코끼리</li>
+ <li>얼룩말</li>
+ </ol>
+</li>
+<li>꽃
+ <ol type="a">
+ <li>장미</li>
+ <li>데이지</li>
+ <li>튤립</li>
+ </ol>
+</li>
+</ol>
+
+[ex] for~in을 이용해서 "list"라는 변수 
+즉, array-like의 키값만 출력해주세요~
+
+1 동물
+2 꽃
+
+<script>
+a=["기린","사자","토끼","코끼리"];
+b=["장미","튤립","봉숭화","데이지"];
+list={ "동물":a, "꽃":b };
+//here
+</script>
+</body>
+[an]
+<script>
+a=["기린","사자","토끼","코끼리"];
+b=["장미","튤립","봉숭화","데이지"];
+list={ "동물":a, "꽃":b };
+document.write("<ol>");
+for(key in list){
+ document.write("<li>");
+ document.write(key);
+ document.write("</li>");
+}
+document.write("</ol>");
+</script>
+</body>
+
+[ex]
+<script>
+a=["기린","사자","토끼","코끼리"];
+b=["장미","튤립","봉숭화","데이지"];
+list={ "동물":a, "꽃":b };
+document.write("<ol>");
+for(key in list){
+ document.write("<li>");
+ document.write(key);
+  document.write("<ol type=a>");
+  for(index in list[key]){
+   document.write("<li>");
+   document.write(list[key][index]);
+   document.write("</li>");
+  }
+  document.write("</ol>");
+ document.write("</li>");
+}
+document.write("</ol>");
+</script>
+</body>

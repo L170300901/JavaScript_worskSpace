@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        font{
+            background-color:yellow;
+        }
+    </style>
+    <script>
+        function f(){
+            fontTag.color="green";
+            fontTag.style.backgroundColor="red";
+        
+        }
+    </script>
+    <script>
+        window.onload=function(){
+            var fontTag=document.createElement("font");
+            fontTag.color="red";
+            fontTag.innerHTML="글자";
+            bodyTag.appendChild(fontTag);
+        }
+    </script>
+
+</head>
+<body>
+    
+    <script>
+        function Car(a,b){
+            this.color=a;
+            this.speed=b;
+            this.speedUp=function(c){
+                this.speed=this.speed+c;
+            }
+        }
+
+        var car1=new Car("red",100);
+        var car2=new Car("blue",200);
+
+        document.write(car1.color+","+car1.speed);
+        document.write("<br/>");
+        document.write(car2.color+","+car2.speed);
+        document.write("<br/>");
+        car1.speedUp(10);
+        document.write(car1.color+","+car1.speed);
+        document.write("<br/>");
+    </script>
+         
+    
+    <font color="red" id="fontTag">글자</font> <br/>
+    <input type="button" value="변경하기" onclick="f()">
+    
+    <br/>
+
+        <ol id="olTag">
+        <li>aa</li>
+        <li>bb</li>
+        </ol>
+        <input type="button" value="추가" id="buttonTag">
+</body>
+</html>

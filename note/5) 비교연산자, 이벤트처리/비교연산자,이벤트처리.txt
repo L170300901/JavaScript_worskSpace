@@ -1,0 +1,556 @@
+# 템플릿문자열(ES6) 83p
+[ex]
+<script>
+var y=2020 , m=5, d=19;
+document.write(y+"년"+m+"월"+d+"일<br/>");
+document.write(`${y}년 ${m}월 ${d}일`);
+</script> 
+
+
+# 비교연산자 85p
+[ex] 자료형까지 조사하는 "===연산자", "!=="
+  <script>
+      console.log(10=="10"); // true
+      console.log(10==="10"); // false
+  </script> 
+ 
+# truthy, falsy 98p
+
+[ex]
+<script>
+var a=parseInt("abc");
+document.write(a); // NaN
+</script>
+
+[ex] 
+    <script>
+        console.log(Boolean(10)); // true
+        console.log(Boolean(0)); 
+        console.log(Boolean(""));  
+        console.log(Boolean(NaN)); 
+        console.log(Boolean(undefined)); 
+        console.log(Boolean("0")); // true
+        console.log(Boolean("false")); // true
+    </script> 
+
+[ex]  boolean2.html
+
+  <script>
+    if("") document.write(1);
+    else document.write(2);
+    document.write("<br/>");
+    function f(num){
+        if(num) document.write(3);
+        else document.write(4);
+    }
+    f();
+  </script>
+
+
+[ex] 공백인지 공백아닌지 조사하기
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){
+            if(txt.value){ alert("공백아님"); }else{ alert("공백"); }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" value="조사" onclick="f()">
+</body>
+</html>
+
+
+[ex] 숫자인지 문자인지 조사하기 (isNaN내장함수)
+
+isNaN(값)
+값이 숫자가 아니면 true를 반환한다.
+값이 숫자면 false를 반환한다.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){
+            if(isNaN(txt.value)){
+                alert("문자열");
+            }else{
+                alert("숫자");
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" value="조사" onclick="f()">
+</body>
+</html>
+
+
+[ex] "결과보기"를 클릭하면 세번째박스에 덧셈결과를 출력하세요~
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){
+            var n1=txt1.value;
+            var n2=txt2.value;
+            if(!txt1.value || !txt2.value){
+                txt3.value="값을 입력하세요~";
+                return;
+            }
+            txt3.value=parseInt(n1)+parseInt(n2);
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt1">
++
+<input type="text" id="txt2">
+<input type="button" value="결과보기" onclick="f()">
+<input type="text" id="txt3">
+</body>
+</html>
+
+
+# document.querySelector("#id")  101p
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f(){
+        var idName=document.querySelector("#"+txt3.value);
+        idName.style.backgroundColor="orange";
+    }   
+    </script>
+ </head>
+<body>
+    <input type="text" id="txt1"><br/>
+    <input type="text" id="txt2"><br/>
+    <input type="text" id="txt3">
+    <input type="button" onclick="f()"> 
+</body>
+</html>
+
+
+[ex] 버튼을 누르면 텍스트의 배경색상을 
+"orange"로 변경하세요~
+단, "str"변수를 이용해야합니다.
+    <script>
+    function f(){
+       var str="txt";
+       //here
+    }   
+    </script>
+ </head>
+<body>
+    <input type="text" id="txt">
+    <input type="button" onclick="f()"> 
+
+
+# 이벤트처리하기 
+이벤트란?  143p
+이벤트종류 143p
+이벤트처리기 145p
+
+[ex]
+<script>
+function f(){
+ //클릭이벤트처리
+}
+</script>
+<input type="button" onclick="f()">
+
+[ex]
+<script>
+버튼식별ID.onclick=f;
+function f(){}
+</script>
+<input type="button" id="버튼식별ID">
+
+
+<script>
+버튼식별ID.click=function(){};
+</script>
+<input type="button" id="버튼식별ID">
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            b.onclick=f;
+        }
+        function f(){
+           b.style.backgroundColor="orange";
+        }   
+        </script>
+ </head>
+<body>
+    <input type="button" id="b"> 
+</body>
+</html>
+
+
+[ex] 버튼을 누르면 버튼배경색상을 버튼의 
+제목색상으로 변경하세요~
+    <input type="button" id="b1" value="red"> 
+    <input type="button" id="b2" value="blue"> 
+    <input type="button" id="b3" value="green">
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(b){
+            b.style.backgroundColor=b.value;
+        }
+    </script>
+ </head>
+<body>
+    <input type="button" id="b1" value="red" onclick="f(this)"> 
+    <input type="button" id="b2" value="blue" onclick="f(this)"> 
+    <input type="button" id="b3" value="green" onclick="f(this)"> 
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            b1.onclick=f;
+            b2.onclick=f;
+            b3.onclick=f;
+        }
+        function f(){
+            this.style.backgroundColor=this.value;
+        }
+    </script>
+ </head>
+<body>
+    <input type="button" id="b1" value="red"> 
+    <input type="button" id="b2" value="blue"> 
+    <input type="button" id="b3" value="green"> 
+</body>
+</html>
+
+
+[ex] 첫번째와 두번째 텍스트박스에 값을 입력한뒤
+연산자버튼을 각각 클릭하면
+마지막텍스트박스에 연산식과 값이 출력될 수 있도록 
+소스코드를 작성하세요~
+    <input type="text" id="txt1"> 
+    <input type="button" value="+">
+    <input type="button" value="-">
+    <input type="button" value="*">
+    <input type="text" id="txt2"> 
+    <input type="text" id="txt3"> 
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(b){
+            var n1=parseInt(txt1.value);
+            var n2=parseInt(txt2.value);
+            switch(b.value){
+            case "+" : txt3.value=n1+"+"+n2+"="+(n1+n2);   break;
+            case "-" : txt3.value=n1+"-"+n2+"="+(n1-n2);   break;
+            case "*" : txt3.value=n1+"*"+n2+"="+(n1*n2);   break;
+            }
+        }
+    </script>
+ </head>
+<body>
+    <input type="text" id="txt1"> 
+    <input type="button" value="+" onclick="f(this)">
+    <input type="button" value="-" onclick="f(this)">
+    <input type="button" value="*" onclick="f(this)">
+    <input type="text" id="txt2"> 
+    <input type="text" id="txt3"> 
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            b1.onclick=f;
+            b2.onclick=f;
+            b3.onclick=f;
+        }
+        function f(){
+            var n1=parseInt(txt1.value);
+            var n2=parseInt(txt2.value);
+            switch(this.value){
+            case "+" : txt3.value=n1+"+"+n2+"="+(n1+n2);   break;
+            case "-" : txt3.value=n1+"-"+n2+"="+(n1-n2);   break;
+            case "*" : txt3.value=n1+"*"+n2+"="+(n1*n2);   break;
+            }
+        }
+    </script>
+ </head>
+<body>
+    <input type="text" id="txt1"> 
+    <input type="button" value="+" id="b1">
+    <input type="button" value="-" id="b2">
+    <input type="button" value="*" id="b3">
+    <input type="text" id="txt2"> 
+    <input type="text" id="txt3"> 
+</body>
+</html>
+
+[ex] 포커스를 얻으면 텍스트의 배경색상을 "orange"
+포커스를 잃어버리면  텍스트의 배경색상을 원래대로
+이벤트를 처리하세요~
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">
+[an1]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f1(txt){ 
+        txt.style.backgroundColor="orange";
+    }    
+    function f2(txt){    
+        txt.style.backgroundColor="";
+    }
+    </script>
+  </head>
+<body>
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">
+    <input type="text" onfocus="f1(this)" onblur="f2(this)">   
+</body>
+</html>
+
+[an2]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            txt1.onfocus=f1;
+            txt1.onblur=f2;
+        }
+    function f1(){ this.style.backgroundColor="orange"; }    
+    function f2(){ this.style.backgroundColor=""; }
+    </script>
+  </head>
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+    <input type="text" id="txt3"> 
+</body>
+</html>
+
+[ex] 버튼에 마우스를 올리면 버튼의  배경색상을 "orange"
+버튼에 마우스를 내리면 버튼의  배경색상을  원래대로
+이벤트를 처리하세요~
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+[an1]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f1(b){ b.style.backgroundColor="orange"; }    
+    function f2(b){ b.style.backgroundColor=""; }
+    </script>
+  </head>
+<body>
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+    <input type="button" onmouseover="f1(this)" onmouseout="f2(this)">
+</body>
+</html>
+[an2]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            b1.onmouseover=f1;
+            b2.onmouseover=f2;
+        }
+    function f1(){ this.style.backgroundColor="orange"; }    
+    function f2(){ this.style.backgroundColor=""; }
+    </script>
+  </head>
+<body>
+    <input type="button" id="b1">
+    <input type="button" id="b2">
+    <input type="button" id="b3">
+</body>
+</html>
+
+[ex] keyup이벤트 : 사용자가 키에서 손을 뗄때 이벤트가 발생합니다.
+<script>
+function f(txt){
+ alert(txt.value.length);
+}
+</script>
+    <input type="text" onkeyup="f(this)">
+
+
+[ex] focus함수
+<input type="text" id="txt1">
+<input type="text" id="txt2">
+<input type="text" id="txt3">
+<script>
+txt2.focus(); // 포커스가 두번째박스에 들어가있습니다.
+</script>
+
+[ex] 주민등록번호 앞자리 6자리를 입력하면 
+자동으로 커서가 다음텍스트박스로 이동됩니다.
+<input type="text" id="txt1">-<input type="text" id="txt2">
+[an1]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){
+            if(txt1.value.length==6) txt2.focus();
+        }
+    </script>
+  </head>
+<body>
+    <input type="text" id="txt1" onkeyup="f()">
+    -
+    <input type="text" id="txt2">
+</body>
+</html>
+[an2]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            txt1.onkeyup=f;
+        }
+        function f(){
+            if(this.value.length==6) txt2.focus();
+        }
+    </script>
+  </head>
+<body>
+    <input type="text" id="txt1">
+    -
+    <input type="text" id="txt2">
+</body>
+</html>
+
+
+# 테스트
+
+[ex1] 버튼을 누르면 버튼제목을 "홍길동"으로 변경하세요~
+<input type="button" value="버튼제목">
+[an1]
+<script>
+function f(b){ b.value="홍길동"; }
+</script>
+<input type="button" value="버튼제목" onclick="f(this)">
+
+[an2]
+<script>
+window.onload=function(){
+ b.onclick=f;
+}
+function f(){ this.value="홍길동"; }
+</script>
+<input type="button" value="버튼제목" id="b">
+
+[ex2] "글자"를 클릭하면 아래의 css를 적용해주세요~
+border : 3px dashed navy
+
+<a href="#">글자</a>
+
+[an1]
+<script>
+function f(aTag){ aTag.style.border="3px dashed navy"; }
+</script>
+<a href="#" onclick="f(this)">글자</a>
+</script>
+
+[an2]
+<script>
+window.onload=function(){ aTag.onclick=f; }
+function f(){ this.style.border="3px dashed navy"; }
+</script>
+<a href="#" id="aTag">글자</a>
+</script>

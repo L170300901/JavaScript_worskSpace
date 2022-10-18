@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            document.forms[0].elements[3].onclick = calculate; //이벤트 등록
+        }
+        //계산 이벤트
+        function calculate() {
+            var chbArray = document.getElementsByName("food"); //select태그 배열 대입
+            var total = 0; //합계
+            //생성된 select 태그의 값과 checkbox의 value를 곱해서 계산
+            chbArray.forEach(function (item, index) {
+                if (item.checked) {
+                    total += parseInt(item.nextSibling.nextSibling.value) * item.value;
+                }
+            })
+            document.forms[0].elements["txt1"].value = total; //text태그에 합계 입력
+        }
+
+        //체크박스 클릭시 select 태크 생성 및 삭제
+        function f(chb) {
+            //체크 확인
+            if (chb.checked) {
+                var selectTag = document.createElement("select"); //select 태그 생성
+                for (var i = 1; i < 4; i++) {
+                    var optionTag = document.createElement("option"); //select 태그 옵션 포함
+                    optionTag.innerHTML = i;
+                    selectTag.appendChild(optionTag);
+                }
+                document.forms[0].insertBefore(selectTag, chb.nextSibling.nextSibling); //select 태그 삽입
+            } else {
+                document.forms[0].removeChild(chb.nextSibling.nextSibling); // select 태그 삭제
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="checkbox" value="4500" name="food" onclick="f(this)">우동 4500
+        <input type="checkbox" value="3500" name="food" onclick="f(this)">라면 3500
+        <input type="checkbox" value="6000" name="food" onclick="f(this)">라볶기 6000
+        <input type="button" value="계산">
+        <input type="text" id="txt1">
+    </form>
+
+</body>
+
+</html>

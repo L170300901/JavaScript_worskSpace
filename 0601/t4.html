@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js">
+    </script>
+    </script>
+    <script>
+        /*$(document).ready(function () {
+            $("a").click(f1,f2);
+            
+            });
+        });*/
+       
+    </script>
+    <script>
+        window.onload = function () {
+            aTag.onclick = f;
+        }
+        function f() {
+            this.innerHTML = this.innerHTML == "소스코드보기" ?
+                "소스코드숨기기" : "소스코드보기";
+        }
+    </script>
+</head>
+
+<body>
+    <a href="#" id="aTag">소스코드보기</a>
+</body>
+
+</html>

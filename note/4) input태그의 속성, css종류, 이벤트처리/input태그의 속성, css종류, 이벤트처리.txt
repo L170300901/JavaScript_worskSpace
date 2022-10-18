@@ -1,0 +1,480 @@
+[hw]
+    <script>
+        a=["기린","사자","토끼","코끼리"];
+        b=["장미","튤립","봉숭화","데이지"];
+        list={ "동물":a, "꽃":b };
+        document.write("<ol>");
+        for(key in list){
+            document.write("<li>");
+            document.write(key);
+            document.write("</li>");
+            document.write("<ol>");
+            for(index in list[key]){
+                document.write("<li>");
+                document.write(list[key][index]);
+                document.write("</li>");
+            }
+            document.write("</ol>");
+        }
+        document.write("<ol>");
+</script>
+
+# 4장
+input태그의 속성 autofocus, placeholder, readonly, required 168p, 새책(159p)
+placeholder&readonly&required.html
+
+드롭다운목록 
+select,option 180p,새책(171P) select1.html
+optgroup 182p, 새책(172p)  select2.html
+datalist,option 183p, 새책(174p) datalist.html
+textarea 184p  textarea.html
+
+# 5장 css
+css개념 196p,새책(185p)
+css표기방법 199p,새책(187p)
+css주석문 202p,새책(190p)
+css의 종류 : 202p  ~  205p
+ 내부스타일시트 새책(190), 외부스타일시트, 인라인스타일시트
+
+==>내부스타일시트
+<head>
+<style> 
+h1 { color:red; }
+</style>
+</head>
+<body>
+<h1>aaa</h1>
+</body>
+
+==> 외부스타일시트
+xxx.css
+====
+h1 { color:red }
+
+outerstyle.html
+==========
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='xxx.css'>
+</head>
+<body>
+<h1>aaa</h1>
+</body>
+
+
+==> 인라인스타일시트
+
+<body>
+<h1 style="color:red">aaa</h1>
+</body>
+
+
+선택자 종류 : 206p ~ 213p
+ 전체선택자, 태그선택자, 클래스선택자, id선택자, 그룹선택자, 
+
+[ex]
+<style>
+h1, p { color:red }
+</style>
+</head>
+<body>
+<h1>aaa</h1>
+<p>bbb</p>
+</body>
+
+css3 221p(읽어오기)
+
+# javascript
+
+ECMAScript 20p
+
+14p~22p(읽어오기)
+
+# 외부스트립트파일연결하기 41p
+
+[ex] 
+gugudan.html
+=========
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; }
+    </style>
+    <script>
+        function gugudan(dan){
+            document.write("<table>");
+            for(n=1; n<10; n++){
+            document.write("<tr>");
+            document.write("<td>");
+            document.write(dan+"*"+n+"="+dan*n);
+            document.write("</td>");
+            document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+       gugudan(7); 
+    </script>    
+</body>
+</html>
+
+[ex]
+gugudan.js
+=======
+        function gugudan(dan){
+            document.write("<table>");
+            for(n=1; n<10; n++){
+            document.write("<tr>");
+            document.write("<td>");
+            document.write(dan+"*"+n+"="+dan*n);
+            document.write("</td>");
+            document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+gugudan.html
+==========
+<head>
+    <script src="gugudan.js"></script>
+</head>
+<body>
+    <script>
+       gugudan(7); 
+    </script>    
+</body>
+
+45p(읽어오기)
+
+
+# 변수선언하기 59p
+1 var
+2 let(ES6)
+3 const(ES6)
+
+[ex] var.html
+    <script>
+      function f(){
+        num=100;
+      }  
+      f();
+      console.log(num); // 100
+    </script> 
+
+[ex] 
+    <script>
+      function f(){
+        var num=100; // 로컬변수
+      }  
+      f();
+      console.log(num); // 오류발생~
+    </script>  
+
+[ex] var변수의 문제점 var2.html
+    <script>
+      num=100;
+      function f(){
+        num=200;
+        console.log("함수:"+num);
+      }  
+      f();
+      console.log("글로벌:"+num);
+    </script> 
+
+[ex] 블럭변수 let
+let.html  65p
+    <script>
+        let num=100;
+        function f(){
+          let num=200;
+          console.log("함수:"+num);
+        }  
+        f();
+        console.log("글로벌:"+num);
+      </script> 
+  
+[ex] 상수에 사용하는 const
+const는 배열과 객체를 선언할때 사용합니다~
+const.html
+=======
+    <script>
+        const num=100;
+        num=200; // 오류발생~
+        console.log(num);
+      </script>    
+
+# 자료형 66p
+
+[ex]
+  <script>
+var a=100;
+var b=true;
+var c="abc";
+var d=function(){ return 200; }
+var e=[300,400];
+var f=new Date();
+console.log( typeof a );
+console.log( typeof b );
+console.log( typeof c );
+console.log( typeof d );
+console.log( typeof e );
+console.log( typeof f );
+console.log( typeof g );
+  </script>  
+
+
+[ex] 콘솔로 출력했을때 내용을 확인할 수 있어요~
+console.html
+========
+  <script>
+var a={"aa":"bb","cc":"dd"};
+var b=[100,200,300]
+
+console.log(a);
+console.log(b);
+document.write(a);
+document.write("<br/>");
+document.write(b);
+  </script>  
+
+
+
+# 대화상자
+1 경고대화상자 alert()
+2 확인대화상자 confirm()
+3 입력대화상자 prompt()
+
+[ex]
+    <script>
+       alert("aaa");
+    </script>
+
+[ex] 확인대화상자에서 확인을 누르면 "성인",
+취소를 누르면 "성인아님"이 화면에 
+출력될 수 있게 하세요~
+    <script>
+    var msg=confirm("당신은 성인입니까?");
+    document.write("성인");  --> 오렌지
+    document.write("성인아님"); --> 초록색
+    </script>
+[an]
+    <script>
+    var msg=confirm("당신은 성인입니까?");
+    if(msg)
+    document.write("<h1 style='color:orange'>성인</h1>");
+    else
+    document.write('<h1 style="color:green">성인아님</h1>');
+    </script>
+
+
+[ex]
+    <script>
+        var n1=prompt("숫자1",100);
+        var n2=prompt("숫자2",200);
+        var v1=parseInt(n1);
+        var v2=parseInt(n2);
+        document.write(v1+v2);
+    </script>
+
+[ex] 자바스크립트에서는 문자열숫자에 대해
+"+"연산자만 문자열연산처리하고 나머지 수치연산에 대해
+올바른 값이 출력됩니다.
+    <script>
+        var v1="10", v2="5";
+        console.log(v1+v2); // 105
+        console.log(v1-v2); // 5
+        console.log(v1*v2); // 50
+    </script>
+
+# 이벤트처리하기
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function abc(){
+           b1.style.backgroundColor="red";
+           b1.style.color="silver";
+           b1.value="bbb";
+        }
+    </script>
+</head>
+<body>
+   <input type="button" style="background-color:aqua;color:blue;"
+   value="aaa" id="b1" onclick="abc()">
+</body>
+</html>
+
+[ex] 각각의 버튼을 누르면 버튼의 배경색상이 
+버튼제목색상으로 변경되게 하세요~
+   <input type="button" value="red">
+   <input type="button" value="yellow">
+
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f1(){
+            b1.style.backgroundColor=b1.value;
+        }
+        function f2(){
+            b2.style.backgroundColor=b2.value;            
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="red" id="b1" onclick="f1()">
+    <input type="button" value="yellow" id="b2" onclick="f2()">    
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(b){
+            b.style.backgroundColor=b.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="red" onclick="f(this)">   
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(b){
+            b.style.backgroundColor=b.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="red" onclick="f(this)">
+    <input type="button" value="yellow" onclick="f(this)">    
+</body>
+</html>
+
+[ex] 아래문장을 반복문으로 변경하세요~
+    <input type="button" value="red">   
+    <input type="button" value="orange">   
+    <input type="button" value="yellow">   
+    <input type="button" value="green">   
+    <input type="button" value="blue">   
+    <input type="button" value="navy">   
+    <input type="button" value="purple"> 
+
+[an] 
+<script>
+var array=["red","orange","yellow","green","blue","navy","purple"];
+for(var index in array)
+document.write("<input type=button value="+array[index]+">");
+</script>
+
+
+[ex] 반복문으로 변경하세요~
+<script>
+function f(b){
+ b.style.backgroundColor=b.value;
+}
+</script>
+</head>
+<body>
+    <input type="button" value="red" onclick="f(this)">   
+    <input type="button" value="orange" onclick="f(this)">     
+    <input type="button" value="yellow" onclick="f(this)">   
+    <input type="button" value="green" onclick="f(this)">    
+    <input type="button" value="blue" onclick="f(this)">   
+    <input type="button" value="navy" onclick="f(this)">     
+    <input type="button" value="purple" onclick="f(this)">   
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(b){
+            b.style.backgroundColor=b.value;
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var array=["red","orange","yellow","green","blue","navy","purple"];
+        for(var index in array){
+        document.write("<input type=button");
+        document.write(" value="+array[index]);
+        document.write(" onclick=f(this)>");
+        }
+        </script> 
+</body>
+</html>
+
+
+[ex]
+a.css
+===
+h1 { color:orange; }
+
+b.js
+===
+function f(txt){
+ txt.style.backgroundColor="green";
+}
+
+test.html
+======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='a.css'>
+    <script src='b.js'></script>
+    <script>
+        function f2(txt){
+            txt.style.background="";
+        }
+    </script>
+</head>
+<body>
+    <h1>포커스이벤트</h1>
+    <input type="text" onfocus="f(this)" onblur="f2(this)">  
+    <input type="text" onfocus="f(this)" onblur=f2(this)>  
+</body>
+</html>

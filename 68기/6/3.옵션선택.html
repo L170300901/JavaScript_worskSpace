@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            check1.onclick = f;
+        }
+        function f() {
+
+            if (document.forms[0].elements[0] == checked) {
+                console.log("11");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <form>
+        <script>
+            for (i = 0; i < 20; i++) {
+                document.write("<input type=checkbox id=check" + i + "><br/>");
+            }
+        </script>
+
+    </form>
+
+</body>
+
+</html>

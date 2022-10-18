@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <style>
+
+        td { border:1px solid navy; }
+        .s1{
+            BACKGROUND-color:red;
+        }
+     </style>
+   <script>
+        function f1(button){
+            var dan= button.value;
+            document.write("<table>");
+            document.write("::: "+dan+"단 :::");
+            for(var n=1; n<10; n++){
+                document.write("<tr><td>");
+                document.write(dan+"*"+n+"="+dan*n);
+                document.write("</td></tr>");
+            }
+            document.write("</table>");
+
+        }   
+    </script>
+</head>
+<body>
+    <input type="button" value="2" id="b1" class="s1" onclick="f1(b1)">
+    <input type="button" value="3" id="b2" onclick="f1(b2)">
+    <input type="button" value="4" id="b3" onclick="f1(b3)">
+
+
+    
+</body>
+</html>

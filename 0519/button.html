@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+    <script src='main.js'></script>
+    <script>
+        function f1(n1, n2){
+                alert(n1+","+n2);
+        }
+        function abc(){
+        b1.style.backgroundColor="red";
+        b1.style.color="silver";
+        b1.value="bbb";
+}
+    </script>
+</head>
+<body>
+    <script>
+        for(var i=0;i<10;i++){
+        document.write("<input type=button value="+i+">"+"<br/>");
+    }
+    </script>
+    <br/>
+    <input type="button" value="1" onclick="alert(111)"><br/>
+    <input type="button" value="2" onclick="alert('abc')"><br/>
+    <input type="button" value="3" onclick="f1(10,20)"><br/>
+
+    <br/>
+
+    <input type="button" style="background-color:aqua;color:blue;" value="aaa" id="b1" onclick="abc()">
+</body>
+</html>

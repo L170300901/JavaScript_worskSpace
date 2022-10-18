@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            buttonTag.onclick = f;
+            buttonTag2.onclick = f2;
+            
+        }
+        var num=2;
+        function f(){
+            var tdTag=document.createElement("td");
+            tdTag.innerHTML=num++;
+            trTag.appendChild(tdTag);
+        }
+        function f2() {
+            trTag.removeChild(trTag.lastChild);  
+            num--;
+        }
+    </script>
+    <style>
+    
+     td { border:1px solid navy;}
+    </style>
+</head>
+
+<body>
+ 
+    <table>
+        <tr id="trTag">
+            <td>1</td>
+        </tr>
+    </table>
+    <input type="button" value="칸추가" id="buttonTag">
+    <input type="button" value="칸제거" id="buttonTag2">
+</body>
+
+</html>

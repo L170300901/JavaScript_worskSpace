@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s1 { text-decoration:overline;}
+        .s2 { text-decoration:underline;}
+        .s3 { text-decoration:line-through;}
+        </style>
+        <script>
+         function f(obj){
+             h.style.textDecoration=obj.value
+         }
+        </script>
+</head>
+<body>
+    <h1 class="s1">overline</h1>
+    <h1 class="s2">underline</h1>
+    <h1 class="s3">line-through</h1>
+    <h1 id="h">글자</h1>
+    <input type="button" value="overline" onclick="f(this)">
+    <input type="button" value="underline" onclick="f(this)">
+    <input type="button" value="line-through" onclick="f(this)">
+    
+</body>
+</html>

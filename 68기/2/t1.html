@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        td,
+        th {
+            padding: 10px;
+            /* 셀 테두리와 내용 사이의 간격(패딩) */
+            text-align: center;
+            /*p376쪽*/
+            font-size: 20px;
+            color: rgb(255, 47, 168)
+        }
+
+        .s1 {
+            background-color: aqua;
+
+        }
+
+        .s2 {
+            background-color: blueviolet;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        for (i = 1; i <= 10; i++) {
+            if (i % 2 == 0) {
+                document.write("<font color='blue'>");
+                document.write(i + "<br/>");
+                document.write("</font>");
+            }
+            else {
+                document.write(i + "<br/>");
+            }
+        }
+    </script>
+
+    <table>
+        <script>
+            document.write("<tr>")
+            for (i = 1; i < 11; i++) {
+                if (i % 2 == 0) {
+                    document.write("<td class=s1> " + i + "</td> ");
+                }
+                else {
+                    document.write("<td class=s2> " + i + "</td> ");
+                }
+
+            }
+            document.write("</tr> ")
+        </script>
+    </table>
+
+    <table>
+        <script>
+            for (i = 1; i <= 10; i++) {
+                if (i % 2 == 0) {
+                    document.write("<tr><td class=s1> " + "5*" + i + "</td><td class=s1> " + 5 * i + "</td><tr> ");
+                }
+                document.write("<tr><td class=s2> " + "5*" + i + "</td><td class=s2> " + 5 * i + "</td><tr> ");
+            }
+        </script>
+    </table>
+    <br />
+
+    <script>
+        jumsu = prompt("점수를 입력하시오");
+        if (jumsu >= 90) {
+            grade = "a";
+        }
+        else if (90 > jumsu >= 80) {
+            grade = "b";
+
+        }
+        else if (80 > jumsu >= 70) {
+            grade = "c";
+        }
+        else {
+            grade = "f";
+        }
+        document.write(grade + "학점");
+    </script>
+
+</body>
+
+</html>

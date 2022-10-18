@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='mathUtil.js'></script>
+    <script>
+        window.onload=function(){
+            mx.onclick=f;
+            mn.onclick=f;
+            p.onclick=f;
+            m.onclick=f;
+            d.onclick=f;
+        }
+        function f(){
+            var n1=parseInt(txt1.value);
+            var n2=parseInt(txt2.value);
+            switch(this.value){
+                case "최대값" : txt3.value=max(n1,n2); break;
+                case "최소값" : txt3.value=min(n1,n2); break;
+                case "합" : txt3.value=add(n1,n2); break;
+                case "차" : txt3.value=sub(n1,n2); break;
+                case "곱" : txt3.value=mul(n1,n2); break;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    첫번째 숫자 : <input type="text" id="txt1"><br/>
+두번째 숫자 : <input type="text" id="txt2"><br/>
+<input type="button" value="최대값" id="mx" >
+<input type="button" value="최소값" id="mn" >
+<input type="button" value="합" id="p" >
+<input type="button" value="차" id="m" >
+<input type="button" value="곱" id="d">
+<input type="text" id="txt3">
+</body>
+</html>

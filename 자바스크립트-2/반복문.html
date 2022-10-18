@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        font{
+            font-size:50px;
+        }
+        table, th, td {
+                border:1px solid #ccc;
+            }	
+
+    </style>
+
+</head>
+<body>
+    <script>
+        for(var i=1;i<11;i++){
+            document.write(i);
+            document.write("<br/>"); //자바스크립트에서는 문자타입과 문자열타입의 구분이 없습니다, 외따옴표로 감싸든 쌍따옴표로 감싸든 무저간 문자열입니다
+        }
+        document.write("--------------------<br/>");
+        for(var i=10;i>=1;i--){
+            document.write(i);
+            document.write("<br/>")
+        }
+        document.write("--------------------<br/>");
+
+        for(var a=1; a<11; a++){
+            if(a%2==0) str="orange";
+            else str="green";
+            document.write("<font color="+str+">"+a+"</font>"+"<br/>");
+	    }
+        document.write("--------------------<br/>");
+ 
+        var n1=100;
+        var n2=200;
+        document.write(n1+"+"+n2+"="+(n1+n2))+"<br/>";
+
+    </script>
+
+   
+</body>
+</html>

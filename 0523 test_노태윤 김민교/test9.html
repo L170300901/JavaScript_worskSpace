@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script src='mathUtil.js'>
+    </script>
+
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            b1.onclick = f;
+            b2.onclick = f;
+            b3.onclick = f;
+            b4.onclick = f;
+            b5.onclick = f;
+        }
+        function f() {
+            var n1 = parseInt(txt1.value);
+            var n2 = parseInt(txt2.value);
+            switch (this.value) {
+                case "최대값": txt3.value = max(n1, n2); break;
+                case "최소값": txt3.value = min(n1, n2); break;
+                case "합": txt3.value = add(n1, n2); break;
+                case "차": txt3.value = sub(n1, n2); break;
+                case "곱": txt3.value = mul(n1, n2); break;
+
+            }
+        }
+
+    </script>
+    첫번째 숫자 : <input type="text" id="txt1"><br />
+    두번째 숫자 : <input type="text" id="txt2"><br />
+    <input type="button" value="최대값" id="b1">
+    <input type="button" value="최소값" id="b2">
+    <input type="button" value="합" id="b3">
+    <input type="button" value="차" id="b4">
+    <input type="button" value="곱" id="b5">
+    <input type="text" id="txt3">
+</body>
+
+</html>

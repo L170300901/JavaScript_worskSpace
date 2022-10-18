@@ -1,0 +1,539 @@
+# toString메서드(객체의 정보를 반환하는메서드)
+
+[ex]
+ <script>
+     //here
+ var dog=new Dog("뚱이");
+ var cat=new Cat("아치");
+ document.write(dog.name); // 뚱이
+ document.write("<br/>");
+ document.write(cat.name); // 아치
+ dog.changeName("똘망이");
+ document.write(dog.name); // 뚱이
+ </script>
+[an]
+ <script>
+ function Dog(str){
+     this.name=str;
+     this.changeName=f;
+ }
+ function f(str){
+         this.name=str;
+ }
+ function Cat(str){
+     this.name=str;
+ }
+ var dog=new Dog("뚱이");
+ var cat=new Cat("아치");
+ document.write(dog.name); // 뚱이
+ document.write("<br/>");
+ document.write(cat.name); // 아치
+ dog.changeName("똘망이");
+ document.write(dog.name); // 뚱이
+ </script>
+
+[ex] "t1.html"에 "animalUtil.js"파일을 부르는 
+소스코드를 작성하세요~
+animalUtil.js
+========
+ function Dog(str){
+     this.name=str;
+     this.changeName=f;
+ }
+ function f(str){
+         this.name=str;
+ }
+ function Cat(str){
+     this.name=str;
+ }
+
+t1.html
+=====
+ <script>
+ var dog=new Dog("뚱이");
+ var cat=new Cat("아치");
+ document.write(dog.name); // 뚱이
+ document.write("<br/>");
+ document.write(cat.name); // 아치
+ dog.changeName("똘망이");
+ document.write(dog.name); // 뚱이
+ </script>
+[an]
+<script src="animalUtil.js"> 
+</script>
+ <script>
+ var dog=new Dog("뚱이");
+ var cat=new Cat("아치");
+ document.write(dog.name); // 뚱이
+ document.write("<br/>");
+ document.write(cat.name); // 아치
+ dog.changeName("똘망이");
+ document.write(dog.name); // 뚱이
+ </script>
+
+[ex]
+ <script>
+    function Car(str){
+        this.color=str;
+        this.toString=f;
+    }
+    function f(){ 
+        return "자동차색상:"+this.color;
+    }
+    var car=new Car("orange");
+    document.write(car);  
+ </script>  
+
+
+[ex] 아래와 같이 출력될 수 있도록
+"animalUtil.js"파일에 toString메서드를 등록하세요~
+animalUtil.js
+========
+ function Dog(str){
+     this.name=str;
+     this.changeName=f;
+ }
+ function f(str){
+         this.name=str;
+ }
+ function Cat(str){
+     this.name=str;
+ }
+
+t1.html
+=====
+ <script>
+ var dog=new Dog("뚱이");
+ var cat=new Cat("아치",10);
+ document.write(dog); // 개,뚱이
+ document.write("<br/>");
+ document.write(cat); // 고양이, 아치, 10
+ </script>
+[an]
+animalUtil.js
+========
+function Dog(str){
+    this.name=str;
+    this.changeName=f;
+    this.toString=f2;
+}
+function f(str){
+        this.name=str;
+}
+function f2(){ return "개,"+this.name; }
+function Cat(str,n){
+    this.name=str;
+    this.age=n;
+    this.toString=f3;
+}
+function f3(){ 
+    return "고양이,"+this.name+","+this.age; 
+}
+
+
+[ex] Math생성자함수를 선언하세요~
+ <script>
+     //here
+    var math1=new Math(10,5);
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+ </script>  
+[an]
+ <script>
+    function MyMath(a,b){
+        this.n1=a; 
+        this.n2=b;
+        this.max=f1;
+        this.min=f2;
+    }
+    function f1(){ return this.n1>this.n2?this.n1:this.n2; }
+    function f2(){ return this.n1>this.n2?this.n2:this.n1; }
+    var math1=new MyMath(10,5);
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+ </script>
+ 
+
+[ex] 
+mathUtil.js
+=======
+    function MyMath(a,b){
+        this.n1=a; 
+        this.n2=b;
+        this.max=f1;
+        this.min=f2;
+    }
+    function f1(){ return this.n1>this.n2?this.n1:this.n2; }
+    function f2(){ return this.n1>this.n2?this.n2:this.n1; }
+
+t1.html
+=====
+<script src="mathUtil.js">
+</script>
+<script>
+    var math1=new MyMath(10,5);
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+ </script>
+
+
+[ex] 위 소스코드에서 아래와 같이 출력될 수 있도록 
+toString메서드를 추가하세요~
+ <script>
+    var math1=new MyMath(10,5);
+    document.write(math1+"<br/>");
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+ </script>  
+[an]
+mathUtil.js
+=======
+function MyMath(a,b){
+    this.n1=a; 
+    this.n2=b;
+    this.max=f1;
+    this.min=f2;
+    this.toString=f3;
+}
+function f1(){ return this.n1>this.n2?this.n1:this.n2; }
+function f2(){ return this.n1>this.n2?this.n2:this.n1; }
+function f3(){
+    return "첫번째숫자:"+this.n1+",두번째숫자:"+this.n2;
+}
+
+# 이미 개발된 객체에 메서드 추가하기
+
+[sy] 객체명.prototype.메서드명=function(){}
+
+[ex] 아래와 같이 출력되려면?
+ <script>
+ var a=new Array(10,20,30);
+ var b=[40,50];
+ Array.prototype.toString=function(){
+     return "Javascript 수업은 재미있다~";
+ }
+ document.write(a); // Javascript 수업은 재미있다~
+ document.write("<br/>");
+ document.write(b); // Javascript 수업은 재미있다~
+ </script>
+
+
+[ex] MyMath객체에 add메서드를 추가하세요~
+단, here부분을 완성해야합니다.
+
+mathUtil.js
+=======
+function MyMath(a,b){
+    this.n1=a; 
+    this.n2=b;
+    this.max=f1;
+    this.min=f2;
+    this.toString=f3;
+}
+function f1(){ return this.n1>this.n2?this.n1:this.n2; }
+function f2(){ return this.n1>this.n2?this.n2:this.n1; }
+function f3(){
+    return "첫번째숫자:"+this.n1+",두번째숫자:"+this.n2;
+}
+
+t1.html
+=====
+    <script src="mathUtil.js">
+    </script>
+</head>
+<body>
+ <script>
+     //here
+    var math1=new MyMath(10,5);
+    document.write(math1+"<br/>");
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+    document.write("<br/>");
+    document.write(math1.add());  // 15
+ </script>   
+[an]
+<script>
+    MyMath.prototype.add=function(){
+        return this.n1+this.n2;
+    }
+    var math1=new MyMath(10,5);
+    document.write(math1+"<br/>");
+    document.write(math1.max());  // 10
+    document.write("<br/>"); 
+    document.write(math1.min());  // 5
+    document.write("<br/>");
+    document.write(math1.add());  // 15
+ </script>   
+
+[ex]
+ <script>
+     function StringBufftner(){
+  this.buffer=[];
+  //here
+ }
+    var sf=new StringBuffer();
+    sf.append("aa");
+    sf.append("bb");
+    sf.append("cc");
+    document.write(sf); // aabbcc
+ </script>  
+[an]
+    <script>
+     function StringBufftner(){
+  this.buffer=[];
+        this.append=f1;
+        this.toString=f2;
+    }
+    function f1(str){ this.buffer.push(str); }
+    function f2(){ return this.buffer.join(""); }
+    var sf=new StringBuffer();
+    sf.append("aa");
+    sf.append("bb");
+    sf.append("cc");
+    document.write(sf); // aabbcc
+ </script> 
+
+[hw]
+<script>
+window.onload=function(){
+ initTable();
+}    
+function initTable(){
+ var grid1=new MyGrid(2,3,"container1");
+ var grid2=new MyGrid(3,4,"container2");
+ grid1.setHead(["헤드1","헤드2","헤드3"]);
+ grid2.setHead(["헤드1","헤드2","헤드3","헤드4"]);
+ grid1.addRow({"헤드1":"aa","헤드2":"bb","헤드3":"cc"});
+}
+</script> 
+<div id="container1">
+<!--
+<table>
+<tr><td>헤드1</td><td>헤드2</td><td>헤드3</td></tr>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+<tr><td>4</td><td>5</td><td>6</td></tr>
+<tr><td>aa</td><td>bb</td><td>cc</td></tr>
+</table>
+-->
+</div>
+<div id="container2"></div>
+
+# Array객체
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+
+[ex] 아래와 같이 출력될 수 있도록 
+배열a를 선언하세요~
+ <script>
+ //here
+ console.log(a.length);    // 3
+ console.log(a[0]);    // 10
+ console.log(a[1]);    // 20,30,40
+ </script>
+[an]
+var a=[10,[20,30,40],"abc"];
+
+[ex] 마지마요소에 60을 추가해주세요~
+ <script>
+ var a=[10,20,30,40,50];
+ //here
+ console.log(a);  // 10 20 30 40 50 60
+ </script>
+[an1]
+ <script>
+ var a=[10,20,30,40,50];
+ a[a.length]=60;
+ console.log(a);  // 10 20 30 40 50 60
+ </script>
+[an2]
+ <script>
+ var a=[10,20,30,40,50];
+ a.push(60);
+ console.log(a);  // 10 20 30 40 50 60
+ </script>
+
+[ex]
+ <script>
+ var a=[10,20,30,40,50];
+ a.forEach(function(b){
+    console.log(b);
+ });
+ </script>
+
+[ex] forEach메서드를 이용해서 회원의 id만 출력하세요~
+ <script>
+ var dataSet=[
+     {"id":"id1","pw":"pw1","addr":"addr1","tel":"tel1"},
+     {"id":"id2","pw":"pw2","addr":"addr2","tel":"tel2"},
+     {"id":"id3","pw":"pw3","addr":"addr3","tel":"tel3"}
+ ];
+ //here
+ </script>
+[an]
+ <script>
+ var dataSet=[
+     {"id":"id1","pw":"pw1","addr":"addr1","tel":"tel1"},
+     {"id":"id2","pw":"pw2","addr":"addr2","tel":"tel2"},
+     {"id":"id3","pw":"pw3","addr":"addr3","tel":"tel3"}
+ ];
+ dataSet.forEach(function(member){
+    document.write(member.id+"<br/>");
+ });
+ </script>
+
+[ex]
+ <script>
+ var dataSet=[
+     {"id":"id1","pw":"pw1","addr":"addr1","tel":"tel1"},
+     {"id":"id2","pw":"pw2","addr":"addr2","tel":"tel2"},
+     {"id":"id3","pw":"pw3","addr":"addr3","tel":"tel3"}
+ ];
+ document.write("<table>");
+ dataSet.forEach(function(member){
+    document.write("<tr>");
+    document.write("<td>"+member.id+"</td>");
+    document.write("<td>"+member.pw+"</td>");
+    document.write("</tr>");
+ });
+ document.write("</table>");
+ </script>
+
+[ex] 주석처리부분처럼 출력될 수 있도록 
+here부분을 완성하세요~
+단, forEach메서드를 이용합니다.
+ <script>
+     var colorArray=["red","green","orange"];
+     //here
+ </script>
+ <!--
+    <input type="button" value="red">
+    <input type="button" value="green">
+    <input type="button" value="orange">
+ -->
+[an]
+    <script>
+        var colorArray=["red","green","orange"];
+        colorArray.forEach(function(str){
+        document.write("<input type=button value="+str+"><br/>");
+        });
+    </script>
+
+[ex] 위 소스코드에서 버튼을 누르면 버튼의 배경색상이
+버튼의 제목으로 변경될 수 있도록 소스코드를 작성하세요~
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; }
+    </style>
+    <script>
+    window.onload=function(){
+        b0.onclick=f;
+        b1.onclick=f;
+        b2.onclick=f;
+    }
+    function f(){
+        this.style.backgroundColor=this.value;
+    }
+    </script>
+</head>
+<body>
+    <script>
+        var colorArray=["red","green","orange"];
+        colorArray.forEach(function(str,index){
+        document.write("<input type=button ");
+        document.write("value="+str+" id='b"+index+"' ><br/>");
+        });
+    </script>
+</body>
+</html>
+
+[ex] 버튼을 누르면 화면이 새로 생성됩니다. 
+올바르게 동작할 수 있도록 소스코드를 수정하세요~
+또한 버튼이 "buttonContainer"라는 id를 가진
+"div"태그의 자식으로 생성되게 하세요~
+    <script>
+        function f(){
+            var colorArray=["red","green","orange"];
+            colorArray.forEach(function(str){
+            document.write("<input type=button value="+str+"><br/>");
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼생성" onclick="f()">
+    <div id="buttonContainer">
+    </div>
+[an1]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){
+            var buffer=[];
+            var colorArray=["red","green","orange"];
+            colorArray.forEach(function(str){
+            buffer.push("<input type=button value="+str+"><br/>");
+            });
+            buttonContainer.innerHTML=buffer.join("");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼생성" onclick="f()">
+    <div id="buttonContainer">
+    </div>
+</body>
+</html>
+[an2]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f(){ 
+            var colorArray=["red","green","orange"];
+            colorArray.forEach(function(str){
+            var inputTag=document.createElement("input");
+            inputTag.type="button";
+            inputTag.value=str;
+            buttonContainer.appendChild(inputTag);
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼생성" onclick="f()">
+    <div id="buttonContainer">
+    </div>
+</body>
+</html>
+
+
+
+[ex]
+ <script>
+ var a=[10,20,30];
+ var b=a.join("&&&");
+ document.write(a);
+ document.write("<br/>");
+ document.write(b);
+ </script>

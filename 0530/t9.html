@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script>
+        window.onload = function () {
+            formTag = document.forms[0];
+            size = formTag.elements.length;
+            formTag.elements[size - 2].onclick = f;
+        }
+
+        function f() {
+            var str = 0;
+            for (var i = 0; i < 3; i++)
+                if (formTag.elements[i].checked)
+                    str = (str + parseInt(formTag.elements[i].value));
+
+            formTag.elements[size - 1].value = str;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <script>
+            var array1 = ["우동", "라면", "라볶기"];
+            var array2 = [4500, 3500, 6000];
+            array2.forEach(function (v, index) {
+                document.write("<input type=checkbox")
+                document.write(" value=" + v + ">" + array1[index] + " " + v);
+            });
+        </script>
+        <input type="button" value="계산">
+        <input type="text">
+    </form>
+</body>
+
+</html>

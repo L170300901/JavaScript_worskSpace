@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            buttonTag.onclick=f;
+        }
+        var num=2;
+        function f(){
+            var tdTag=document.createElement("td");
+            tdTag.innerHTML=num++;
+            trTag.appendChild(tdTag);
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr id="trTag"><td>1</td></tr>
+</table>
+<input type="button" value="칸추가" id="buttonTag">
+</body>
+</html>

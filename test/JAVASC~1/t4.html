@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <script>
+        window.onload=function(){
+            b1.onclick=f;
+            b2.onclick=f;
+            b3.onclick=f;
+        }
+        function f(){
+            txt.value=this.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="red" id="b1">
+    <input type="button" value="blue" id="b2">
+    <input type="button" value="green" id="b3">
+    <input type="text" id="txt">
+</body>
+</html>

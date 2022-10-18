@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js">
+    </script>
+    <script>
+        /*$(document).ready(function(){
+            $("span").each(function(){
+                alert($(this).html());
+            })
+        });*/
+        /*$(document).ready(function(){
+            var array=["tomato","violet","skyblue"];
+            var cnt=0;
+            $("input").each(function(){
+                $(this).css("background",array[cnt++]);
+            });
+        });*/
+        $(document).ready(function(){
+            var array=["tomato","violet","skyblue"];
+            $("input").each(function(index,ele){
+                $(ele).css("background",array[index++]);
+            });
+        });
+    </script>
+</head>
+
+<body>
+        <span>ABC</span>
+        <span>DEF</span>
+        <span>GHI</span>
+        <br/>
+        <input type="button">
+        <input type="button">
+        <input type="button">
+</body>
+
+</html>

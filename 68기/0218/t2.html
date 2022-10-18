@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            for (var n = 1; n <= 7; n++) {
+                var txtObj = document.querySelector("#b" + n);
+                txtObj.onmouseover = f1;
+                txtObj.onmouseout = f2;
+            }
+        }
+        function f1() {
+            this.style.backgroundColor = this.value;
+        }
+        function f2() {
+            this.style.backgroundColor = "";
+        }
+
+    </script>
+</head>
+
+<body>
+    <script>
+        var array = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+        var num = 1;
+        for (var str of array) {
+            document.write("<input type=button value=" + str + " id=b" + (num++) + "><br/>");
+        }
+    </script>
+
+</body>
+
+</html>

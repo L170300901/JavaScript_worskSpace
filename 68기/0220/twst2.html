@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f() {
+            var sum = 0;
+            for (var a = 0; a < 10; a++)
+                if (document.forms[0].elements[a].checked) {
+                    sum += (parseInt(document.forms[0].elements[a].value) * parseInt(document.forms[0].elements[a + 1].value));
+                }
+            txt1.value = sum;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <script>
+            var menu = { "라면": "2500", "김밥": "3000", "만두": "3500", "떡볶이": "3500", "튀김세트": "7500" };
+            for (var mName in menu) {
+                document.write("<input type='checkbox' value='" + menu[mName] + "'>" + mName + "(" + menu[mName] + ")");
+                document.write("<select>");
+                for (var num = 1; num < 4; num++)
+                    document.write("<option value=" + num + ">" + num + "</option>");
+                document.write("</select><br/>");
+            }
+        </script>
+    </form>
+    <input type="button" id="bt1" value="계산" onclick=f()>
+    <input type="text" id="txt1">
+</body>
+
+</html>
+
+​

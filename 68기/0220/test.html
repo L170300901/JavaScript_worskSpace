@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test6</title>
+    <style type="text/css">
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const btn = document.forms[0].elements[3];
+            btn.onclick = f1;
+        };
+        function f1() {
+            var sum = 0;
+            for (let i = 0; i < document.forms[0].elements.length - 2; i++) {
+                if (document.forms[0].elements[i].checked === true) {
+                    sum += parseInt(document.forms[0].elements[i].value);
+                }
+            }
+            document.forms[0].elements[4].value = sum;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>주문하실 음식을 선택해주세요</h1>
+    <form>
+        <script>
+            var food = {
+                0: { name: "라면", pay: 2500 },
+                1: { name: "떡볶이", pay: 5000 },
+                2: { name: "돈까스", pay: 7000 },
+            };
+            for (let i = 0; i < 3; i++) {
+                document.write(
+                    "<input type = 'checkbox' value='" +
+                    food[i].pay +
+                    "'/> " +
+                    food[i].name +
+                    "  " +
+                    food[i].pay +
+                    "<br>"
+                );
+            }
+            console.log(food[0].pay);
+        </script>
+        <input type="button" value="계산" />
+        <input type="text" value="총금액" />
+    </form>
+</body>
+
+</html>

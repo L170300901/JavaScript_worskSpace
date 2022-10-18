@@ -1,0 +1,518 @@
+# 5장 함수와 이벤트
+
+함수란 124p
+함수의종류
+1 선언적함수
+2 익명함수
+3 즉시실행함수
+4 화살표함수(ES6)
+
+[ex] 선언적함수 
+<script>
+  f();
+  function f(){ document.write(1); }  
+</script>
+
+호이스팅 : 자바스크립트는 소스코드를 위에서 아래로 순차적으로 실행합니다.
+따라서 호출될 함수를 작성한 후, 아래에서 함수를 호출해야 함수가 호출됩니다.
+하지만 함수 선언문은 함수를 호출하는 코드를 위에 작성하고 호출될 함수를
+아래에 작성해도 함수가 호출됩니다. 이를 호이스팅이라고 합니다.
+
+[ex] 익명함수
+    <script>
+        var a=function(){ document.write(1); }
+        a();
+        function f1(f2){
+            document.write(f2());
+        }
+        f1(function(){ return 2; });
+        function f3(){
+            return function(){ return 3; };
+        }
+        document.write(f3()());
+    </script> 
+
+[ex] 즉시실행함수
+ <script>
+     (function(){
+        document.write(1);
+     })();
+     (function(){
+         document.write(2);
+    }());
+ </script> 
+
+[ex] 화살표함수(ES6) 141p
+    <script>
+        var a = () => document.write(1); 
+        a();
+        function f1(f2){
+            document.write(f2());
+        }
+        f1(()=>2);
+        function f3(){
+            return ()=>3;
+        }
+        document.write(f3()());
+    </script> 
+
+[ex] 화살표함수로 변경하세요~
+    <script>
+        document.write("합:");
+        document.write((function(a,b){ return a+b; })(10,5));
+        document.write("<br/>");
+        document.write("최대값:");
+        document.write((function(a,b){ return a>b?a:b; }(10,5)));
+    </script> 
+[an]
+    <script>
+        document.write("합:");
+        document.write(((a,b)=>a+b)(10,5));
+        document.write("<br/>");
+        document.write("최대값:");
+        document.write( ((a,b)=>a>b?a:b)(10,5) );
+    </script> 
+
+
+# 6장 여러자료를 한꺼번에 담는 객체
+객체란 155p
+객체의종류 156p
+1 내장객체    
+2 DOM 웹문서관련 객체
+3 BOM  브라우져정보를 가진 객체
+4 사용자정의객체
+
+# DOM 224p
+https://wiki.developer.mozilla.org/en-US/docs/Web/API/Document
+
+ document.createElement("태그명") 
+ document.createTextNode("텍스트") 
+ document.getElementById("id명")
+ 객체명.insertBefore(newChild,refChild)
+ 객체명.replaceChild(newChild,oldChild)
+ 객체명.removeChild(oldChild)
+ 객체명.appendChild(newChild)
+ 객체명.parentNode 
+ 객체명.childNodes
+ 객체명.previousSibling 
+ 객체명.nextSibling
+ 객체명.firstChild
+ 객체명.lastChild
+ 객체명.tagName
+
+# innerHTML속성
+[ex] 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+         function f(){
+  aTag.innerHTML="홍길동";
+ }
+    </script>
+</head>
+<body>
+    <a href="#" id="aTag">이곳에 이름을 출력하세요~</a> <br/>
+    <input type="button" value="당신의 이름은?" onclick="f()">
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        font { background-color: yellow;}
+    </style>
+    <script>
+        function f(){
+             fontTag.style.backgroundColor="pink";
+ fontTag.color="green";
+ fontTag.innerHTML="홍길동";
+        }
+    </script>
+</head>
+<body>
+    <font color="red" id="fontTag">글자</font> <br/>
+    <input type="button" value="변경하기" onclick="f()">
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <script>
+        window.onload=function(){
+             var fontTag=document.createElement("font");
+ fontTag.color="red";
+ fontTag.innerHTML="홍길동";
+ bodyTag.appendChild(fontTag);
+        }
+    </script>
+</head>
+<body id="bodyTag">
+</body>
+</html>
+
+
+
+[ex] "추가"버튼을 "3.cc" 추가되게 하려면?
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <script>
+         window.onload=function(){
+  buttonTag.onclick=f;
+ }
+ function f(){
+  //here
+ }
+    </script>
+</head>
+<body>
+<ol id="olTag">
+<li>aa</li>
+<li>bb</li>
+</ol>
+<input type="button" value="추가" id="buttonTag">
+</body>
+</html>
+[an]
+ var liTag=document.createElement("li");
+ liTag.innerHTML="cc";
+ olTag.appendChild(liTag);
+
+
+
+[ex] "칸추가"버튼을 누르면 칸이 추가되게 하세요~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            buttonTag.onclick=f;
+        }
+        function f(){
+            //here
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr id="trTag"><td>1</td></tr>
+</table>
+<input type="button" value="칸추가" id="buttonTag">
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            buttonTag.onclick=f;
+        }
+        var num=2;
+        function f(){
+            var tdTag=document.createElement("td");
+            tdTag.innerHTML=num++;
+            trTag.appendChild(tdTag);
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr id="trTag"><td>1</td></tr>
+</table>
+<input type="button" value="칸추가" id="buttonTag">
+</body>
+</html>
+
+
+[ex] firstChild, lastChild
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; }
+    </style>
+     <script>
+         window.onload=function(){
+             b1.onclick=f1;
+             b2.onclick=f2;
+         }
+        function f1(){ 
+             trTag.firstChild.style.backgroundColor="orange";
+        }
+         function f2(){
+            trTag.lastChild.style.backgroundColor="green";
+         }
+    </script>
+</head>
+<body>
+    <table>
+    <tr id="trTag"><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    </table>
+    <input type="button" value="tr태그의첫번째자손" id="b1">
+    <input type="button" value="tr태그의마지막자손" id="b2">
+</body>
+</html>
+
+
+[ex] removeChild메서드
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; }
+    </style>
+     <script>
+         window.onload=function(){
+             buttonTag.onclick=f;
+         }
+        function f(){ 
+             olTag.removeChild(target);
+        }
+    </script>
+</head>
+<body>
+    <ol id="olTag">
+        <li>aa</li>
+        <li id="target">bb</li>
+        <li>cc</li>
+    </ol>
+    <input type="button" value="삭제" id="buttonTag">
+</body>
+</html>
+
+
+[ex] "칸제거"버튼을 누르면 뒤쪽 칸부터 차례대로 삭제되게 해주세요~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            b1.onclick=f1;
+            b2.onclick=f2;
+        }
+        var num=2;
+        function f1(){
+            var tdTag=document.createElement("td");
+            tdTag.innerHTML=num++;
+            trTag.appendChild(tdTag);
+        }
+        function f2(){
+  //here
+ }
+    </script>
+</head>
+<body>
+<table>
+    <tr id="trTag"><td>1</td></tr>
+</table>
+<input type="button" value="칸추가" id="b1">
+<input type="button" value="칸제거" id="b2">
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            b1.onclick=f1;
+            b2.onclick=f2;
+        }
+        var num=2;
+        function f1(){
+            var tdTag=document.createElement("td");
+            tdTag.innerHTML=num++;
+            trTag.appendChild(tdTag);
+        }
+        function f2(){
+            num--;
+  trTag.removeChild(trTag.lastChild);
+ }
+    </script>
+</head>
+<body>
+<table>
+    <tr id="trTag"><td>1</td></tr>
+</table>
+<input type="button" value="칸추가" id="b1">
+<input type="button" value="칸제거" id="b2">
+</body>
+</html>
+
+[ex] 객체명.insertBefore(newChild,refChild)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <style>
+        td { border:1px solid navy;}
+    </style>
+    <script>
+        window.onload=function(){
+            b.onclick=f;
+        }
+        function f(){
+            var liTag=document.createElement("li");
+            liTag.innerHTML="bb";
+            olTag.insertBefore(liTag,refChild);
+        }
+    </script>
+</head>
+<body>
+<ol id="olTag">
+    <li>aa</li>
+    <li id="refChild">cc</li>
+    <li>dd</li>
+</ol>
+<input type="button" value="삽입" id="b">
+</body>
+</html>
+
+
+[ex]previousSibling , nextSibling 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; }
+    </style>
+     <script>
+         window.onload=function(){
+             b1.onclick=f1;
+             b2.onclick=f2;
+         }
+        function f1(){ 
+            target.previousSibling.style.backgroundColor="orange";
+        }
+         function f2(){
+            target.nextSibling.style.backgroundColor="green";
+         }
+    </script>
+</head>
+<body>
+    <table>
+    <tr><td>1</td><td id="target">2</td><td>3</td><td>4</td></tr>
+    </table>
+    <input type="button" value="2번의앞형제" id="b1">
+    <input type="button" value="2번의뒤형제" id="b2">
+</body>
+</html>
+
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td { border:1px solid navy; width:200px; }
+    </style>
+    <script>
+    window.onload=function(){
+        b1.onclick=f1;
+    }
+    function f1(){
+        var newTr=document.createElement("tr");
+        var newTd=document.createElement("td");
+        var inputTag=document.createElement("input");
+        inputTag.type="button";
+        inputTag.value="X";
+        inputTag.onclick=f2;
+
+        newTd.innerHTML="빈칸생성";
+        newTd.style.textAlign="right";
+        newTr.appendChild(newTd);
+        newTd.appendChild(inputTag);
+
+        var tdTag=this.parentNode;
+        var trTag=tdTag.parentNode;
+        var tableTag=trTag.parentNode;
+        tableTag.insertBefore(newTr,trTag.nextSibling);
+    }
+    function f2(){
+        var tdTag=this.parentNode;
+        var trTag=tdTag.parentNode;
+        var tableTag=trTag.parentNode;   
+        tableTag.removeChild(trTag);     
+    }
+    </script>
+</head>
+<body>
+<table>
+<tr><td><input type="button" value="상세보기" id="b1"></td></tr><tr><td><input type="button" value="상세보기" id="b2"></td></tr><tr><td><input type="button" value="상세보기" id="b3"></td></tr>
+</table>    
+</body>
+</html>
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form>
+    <input type="text" placeholder="abc">
+    <input type="text" readonly value="def">
+    <input type="text" required>
+    <input type="submit">
+    </form>
+
+    <select>
+        <option>건축공학과</option>
+        <option>기계공학과</option>
+        <option>컴퓨터공학과</option>
+        <option>철학과</option>
+        <option>사학과</option>
+        </select>
+
+        <select multiple>
+            <optgroup label="공과대학">
+            <option>건축공학과</option>
+            <option>기계공학과</option>
+            <option>컴퓨터공학과</option>
+            </optgroup>
+            <optgroup label="인문대학">
+            <option>철학과</option>
+            <option>사학과</option>
+            </optgroup>
+            </select>
+
+            <input type="text" list="choices">
+            <datalist id="choices">
+            <option value="grammar" label="문법"></option>
+            <option value="voca" label="어휘"></option>
+            <option value="speaking" label="회화"></option>
+            <option value="listening" label="리스닝"></option>
+            <option value="news" label="뉴스청취"></option>
+            </datalist>
+
+
+
+            <textarea rows="5" cols="50">
+                JavaScript의 표준은 ECMAScript입니다.
+                2012년 기준 최신 브라우저는 모두
+                ECMAScript 5.1을 온전히 지원합니다.
+                이전 브라우저의 경우는 최소한
+                ECMAScript 3까지는 지원합니다.
+                2015년 6월 17일 ECMA International에서는
+                공식명 ECMAScript 2015 로 불리는
+                ECMAScript의 6번째 주 버전을 발표했습니다
+                (보통 ECMAScript 6 혹은 ES6으로 불립니다).
+                그 이후 ECMAScript 표준의 출시 주기는 1년입니다.
+            </textarea>
+    </body>
+</html>

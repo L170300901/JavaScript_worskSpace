@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            c1.onclick = cal;
+            m1.onclick = menu
+        }
+
+        function cal() {
+
+            console.log(1);
+            var sum = 0;
+            for (var m = 0; m < 5; m++) {
+                if (document.forms[0].elements[m].checked) {
+                    sum += parseInt(document.forms[0].elements[m].value);
+                    console.log("####" + document.forms[0].elements[m].value);
+                }
+
+            }
+            console.log(sum);
+            txt1.value = "가격 : " + sum + "원";
+        }
+        function menu() {
+            var str = "";
+            for (var m = 0; m < 5; m++) {
+                if (document.forms[0].elements[m].checked)
+                    str += document.forms[0].elements[m].value + ",";
+            }
+            txt2.value = str;
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type=checkbox value=500> 오뎅 &nbsp 500<br />
+        <input type=checkbox value=1000> 호떡 &nbsp 1000<br />
+        <input type=checkbox value=1500> 김밥 &nbsp 1500<br />
+        <input type=checkbox value=2000> 떡볶이 &nbsp 2000<br />
+        <input type=checkbox value=2500> 순대 &nbsp 2500<br />
+
+        <input type="button" value="메뉴" id="m1">
+        <input type="text" id="txt2"><br />
+
+        <input type="button" value="계산" id="c1">
+        <input type="text" id="txt1">
+    </form>
+</body>
+
+</html>

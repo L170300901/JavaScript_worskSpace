@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        window.onload = function () {
+            b.onclick = f;
+        }
+        function f() {
+            document.forms[0].elements[2].value = document.forms[0].sel.value;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <select id="sel" size=3 multiple>
+            <option>aa</option>
+            <option>bb</option>
+            <option>cc</option>
+            <option>dd</option>
+            <option>ee</option>
+        </select>
+        <input type="button" value="선택된것은?" id="b">
+        <input type="text" id="t1">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+# 자바스크립트
+
+[ex] 주석처리부분을 for문으로 변경하세요~
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+</style>
+    </head>
+<body>
+<table>
+<!--
+    <tr><td>5*1</td><td>5</td></tr>
+    <tr><td>5*2</td><td>10</td></tr>
+    <tr><td>5*3</td><td>15</td></tr>
+    <tr><td>5*4</td><td>20</td></tr>
+    <tr><td>5*5</td><td>25</td></tr>
+    <tr><td>5*6</td><td>30</td></tr>
+    <tr><td>5*7</td><td>35</td></tr>
+    <tr><td>5*8</td><td>40</td></tr>
+    <tr><td>5*9</td><td>45</td></tr>
+-->
+</table>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+</style>
+    </head>
+<body>
+<table>
+<script>
+    dan=7;
+    for(a=1; a<10; a++){
+    document.write("<tr><td>");
+    document.write(dan+"*"+a);
+    document.write("</td><td>");
+    document.write((dan*a)+"</td></tr>");
+    }
+</script>
+</table>
+</body>
+</html>
+
+[ex] 짝수줄 홀수줄의 배경색상이 다를수 있게
+스타일을 적용하세요~
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+    .s1 { background-color: orange;}
+    .s2 { background-color: greenyellow;}
+</style>
+    </head>
+<body>
+<table>
+<script>
+    dan=7;
+    for(a=1; a<10; a++){
+    document.write("<tr><td>");
+    document.write(dan+"*"+a);
+    document.write("</td><td>");
+    document.write((dan*a)+"</td></tr>");
+    }
+</script>
+</table>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+    .s1 { background-color: orange;}
+    .s2 { background-color: greenyellow;}
+</style>
+    </head>
+<body>
+<table>
+<script>
+    dan=7;
+    for(a=1; a<10; a++){
+    cName = a%2==0 ? "s1" : "s2";
+    document.write("<tr class="+cName+">");
+    document.write("<td>"+dan+"*"+a+"</td>");
+    document.write("<td>"+(dan*a)+"</td>");
+    document.write("</tr>");
+    }
+</script>
+</table>
+</body>
+</html>
+
+[ex]  10줄 10칸 테이블을 작성하세요~
+<!DOCTYPE html>
+<html>
+    <head>
+    <style> td { border:1px solid navy; } </style>
+    </head>
+<body>
+<table>
+    <tr>
+    <script>
+    for(a=1; a<11; a++)
+    document.write("<td>"+a+"</td>");
+    </script>
+    </tr>
+</table>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+</style>
+    </head>
+<body>
+<table>
+<script>
+num=1;
+for(b=1; b<11; b++){
+    document.write("<tr>");
+    for(a=1; a<11; a++)
+    document.write("<td>"+ num++ +"</td>"); 
+    document.write("</tr>");
+}
+</script>
+</table>
+</body>
+</html>
+
+[ex] 위 소스코드에서 3의배수 칸 배경색상을 바꿔주세요~
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    td { border:1px solid navy; }
+    .s1 { background-color: aqua;}
+</style>
+    </head>
+<body>
+<table>
+<script>
+num=1;
+for(b=1; b<11; b++){
+    document.write("<tr>");
+    for(a=1; a<11; a++){
+    cName = num%3==0 ? "s1" : "";
+    document.write("<td class="+cName+">"+ num++ +"</td>"); 
+    }
+    document.write("</tr>");
+}
+</script>
+</table>
+</body>
+</html>
+
+# 함수  124p
+
+[sy] 함수선언하기
+function 함수명(){ 문장; ... }
+
+[sy] 함수호출하기 
+함수명();
+
+[sy]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ 함수선언하기
+    </script>
+    </head>
+<body>
+    <script>
+ 함수호출하기
+    </script>
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(){ document.write(1); }
+ function f2(){ document.write(2); }
+    </script>
+    </head>
+<body>
+    <script>
+ f1();
+    </script>
+</body>
+</html>
+
+
+# 함수의 종류
+1 반환형이 없는 함수
+
+<script>
+function 함수명(){}
+함수명();
+</script>
+
+2 반환형이 있는 함수
+
+<script>
+function 함수명(){  return 값; }
+변수=함수명();
+</script>
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(){ document.write(1); }
+ function f2(){ document.write(2); }
+    </script>
+    </head>
+<body>
+    <script>
+ f1();
+ f2();
+    </script>
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(){ document.write(1); }
+ function f2(){ document.write(2); }
+    </script>
+    </head>
+<body>
+    <script>
+ f1();   f2()
+    </script>
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(n){ document.write(n); }
+    </script>
+    </head>
+<body>
+    <script>
+ f1(100);
+ f1(200);
+    </script>
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(a,b,c){ 
+  document.write(a); 
+  document.write(b); 
+  document.write(c); 
+ }
+    </script>
+    </head>
+<body>
+    <script>
+ f1(10,20,30);
+    </script>
+</body>
+</html>
+
+
+[ex] max함수를 호출하는 문장을 작성하세요~
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function max(a,b){  
+  document.write("최대값:"); 
+          document.write(a>b?a:b); 
+ }
+    </script>
+    </head>
+<body>
+    <script>
+    num1=10;
+    num2=20;
+    //here
+    </script>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function max(a,b){  
+  document.write("최대값:"); 
+          document.write(a>b?a:b); 
+ }
+    </script>
+    </head>
+<body>
+    <script>
+    num1=10; num2=20;
+    max(num1, num2);
+    </script>
+</body>
+</html> 
+
+[ex] min함수를 선언하세요~
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function max(a,b){  
+  document.write("최대값:"); 
+          document.write(a>b?a:b); 
+ }
+     //here
+    </script>
+    </head>
+<body>
+    <script>
+ max(3,5);
+     min(5,-9);
+    </script>
+</body>
+</html>
+[an]
+  function min(a,b){  
+  document.write("최소값:"); 
+          document.write(a<b?a:b); 
+ }
+
+
+# return문장
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function f1(){ return 1; }
+ function f2(){ return 2; }
+    </script>
+    </head>
+<body>
+    <script>
+ a=f1();
+ b=f2();
+ document.write(a);
+ document.write("<br/>");
+ document.write(b);
+    </script>
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+ function max(a,b){ return a>b?a:b; }
+ function min(a,b){ return a<b?a:b; }
+    </script>
+    </head>
+<body>
+    <script>
+ n1=10; n2=-5;
+ result1=max(n1,n2);
+ result2=min(n1,n2);
+ document.write("최대값:"+result1); 
+ document.write("<br/>");
+ document.write("최소값:"+result1); 
+    </script>
+</body>
+</html>
+
+
+# 내장함수 44p
+
+[ex] 입력받은값에 해당하는 학점을 출력하세요~
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    a=prompt("점수를입력하세요~","100");
+    document.write(a);
+</script>   
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    jumsu=prompt("점수를입력하세요~","100");
+    document.write("점수:"+jumsu+"<br/>");
+    grade="F";
+    if(jumsu>=90) grade="A";
+    else if(jumsu>=80) grade="B";
+    else if(jumsu>=70) grade="C";
+    else if(jumsu>=60) grade="D";
+    document.write(grade+"학점");
+</script>   
+</body>
+</html>
+
+
+[hw]
+ printGugudan(5);
+ printGugudan(7);
+
+:: 5단 ::
+5*1=5
+...
+
+:: 7단 ::
+7*1=7

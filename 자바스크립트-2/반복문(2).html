@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        table, th, td {
+                border:1px solid #ccc;
+            }
+
+            td, th {
+                padding:10px;   /* 셀 테두리와 내용 사이의 간격(패딩) */
+                text-align: center; /*p376쪽*/
+                font-size:20px;
+                color: rgb(255, 47, 168);
+            }
+            .s1{
+                background-color:red;
+            }
+            .s2{
+                background-color:blue;
+            }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <script>
+                for(var i=1;i<11;i++){
+                    document.write("<td>"+i+"</td>");
+        
+                }
+            </script>
+    
+        </tr>
+    </table>
+
+    <table>
+        <script>
+            for(var i=1;i<11;i++){
+                document.write("<tr><td>"+i+"</td></tr>");
+            }
+        </script>
+    </table>
+        
+        
+    <table>
+        <script>
+            var num=1;
+            for(var i=0;i<5;i++){
+                document.write("<tr>")
+                    for(var j=0;j<5;j++){
+                        if(num%2==0){
+                            document.write("<td class=s1>"+num+"</td>");
+                        }
+                        else{
+                            document.write("<td class=s2>"+num+"</td>");
+                        }
+                        
+                        num++;
+                    }
+
+                document.write("</tr>")
+            
+            }
+        </script>
+    </table>
+
+    <br/>
+
+    <table>
+        <script>
+            var num=1;
+            var str="s1";
+            for(var i=0; i<5; i++){
+                if(i%2==0) str="s1";
+                else str="s2";
+                document.write("<tr class="+str+">")
+                for(var j=0; j<10; j++){
+                    document.write("<td>"+num+"</td>");
+                    num++;
+                }
+                document.write("</tr>")  
+            }  
+        </script>
+    </table>
+
+    <script>
+        var colorArray=["red","orange","yellow","green","blue","navy","purple"];
+                document.write("<tr>")
+                for(var j=0; j<11; j++){
+                    document.write("<td>"+colorArray[j]+"</td>");
+                }
+                document.write("</tr>")   
+    </script>
+
+    
+
+
+
+   
+
+    
+</body>
+</html>

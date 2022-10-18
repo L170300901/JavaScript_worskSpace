@@ -1,0 +1,96 @@
+[ex1] 버튼을 누르면 버튼제목에 본인의이름이 출력되게 하세요~
+단, 첫번째이벤트처리방식으로 풀어주세요!
+<input type="button" value="당신의이름은?">
+
+[ex2] 버튼을 누르면 버튼제목에 본인의이름이 출력되게 하세요~
+단, 두번째이벤트처리방식으로 풀어주세요!
+<input type="button" value="당신의이름은?">
+
+[ex3] 버튼을 누르면 버튼 배경색상을 "orange"로 변경하세요~
+<input type="button" value="배경색상을바꿔주세요~">
+
+[ex4] 버튼을 누르면 텍스트박스에 버튼제목이 출력되게 하세요~
+<input type="button" value="red">
+<input type="button" value="blue">
+<input type="button" value="green">
+<input type="text">
+
+[ex5] 버튼을 누르면 버튼제목이 "blue"가 될 수 있도록 오류를 해결하세요~
+<input type="button" value="red" onclick="this.value=blue">
+
+[ex6] 반복문으로 변경해서 년도를 1900년부터 2500년까지 출력되게 하세요~
+<select>
+<option>1900</option>
+<option>1901</option>
+<option>1902</option>
+....
+<option>2500</option>
+</select>년
+
+[ex7] 입력대화상자에 입력받은
+갯수만큼의 테이블을 생성해주세요~
+단, 줄은 한줄입니다.
+<script>
+var col=prompt("칸수를 입력하세요~","10");
+</script>
+<h1> 테이블 칸 자동으로 생성하기 </h1>
+<table>
+<tr></tr>
+</table>
+
+[ex8] 사용자가 어떤특정한 줄을 클릭하면
+해당줄의 배경색상이 "orange"로 변경될 수
+있도록 이벤트처리하세요~
+<table>
+<script>
+for(var r=0; r<10; r++){
+document.write("<tr>");
+document.write("<td>str1</td><td>str2</td>");
+document.write("</tr>");
+}
+</script>
+</table>
+
+
+[ex9] 첫번째,두번째 텍스트에 숫자를 입력한뒤 각각의 버튼을 누르면
+결과값이 마지막 텍스트에 출력될 수 있도록 소스코드를 작성하세요~
+단, "mathUtil.jsp"파일을 이용해야합니다
+
+mathUtil.js
+=======
+function max(a,b){ return a>b?a:b; }
+function min(a,b){ return a>b?b:a; }
+function add(a,b){ return a+b; }
+function sub(a,b){ return a-b; }
+function mul(a,b){ return a*b; }
+
+test10.html
+=======
+첫번째 숫자 : <input type="text"><br/>
+두번째 숫자 : <input type="text"><br/>
+<input type="button" value="최대값">
+<input type="button" value="최소값">
+<input type="button" value="합">
+<input type="button" value="차">
+<input type="button" value="곱">
+<input type="text">
+
+
+[ex10] 각각의 버튼을 클릭하면 "글자"에
+"text-decoration"스타일을 버튼제목으로 적용해주세요~
+<head>
+<style>
+.s1 { text-decoration:overline;}
+.s2 { text-decoration:underline;}
+.s3 { text-decoration:line-through;}
+</style>
+</head>
+<body>
+<h1 class="s1">overline</h1>
+<h1 class="s2">underline</h1>
+<h1 class="s3">line-through</h1>
+<h1>글자</h1>
+<input type="button" value="overline">
+<input type="button" value="underline">
+<input type="button" value="line-through">
+</body>

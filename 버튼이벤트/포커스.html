@@ -1,0 +1,24 @@
+<!DOC   TYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <script>
+        window.onload=function(){
+            txt1.onfocus=f1;
+            txt1.onblur=f2;
+        }
+    function f1(){ this.style.backgroundColor="orange"; }    
+    function f2(){ this.style.backgroundColor=""; }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+    <input type="text" id="txt3"> 
+    
+</body>
+</html>

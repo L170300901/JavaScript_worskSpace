@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+   <style>
+       font{
+            font-size:20px;
+        }
+        table, th, td {
+                border:1px solid #ccc;
+        }
+        td, th {
+            width:50px;  
+			height:50px;  
+            padding:5px;   
+            font-size:20px;
+            text-align: center;
+            color: rgb(255, 47, 168);
+            font-weight:1000;
+            
+        }
+        .s1{
+        border-style: solid;
+        border-width: 10px;
+        background-color: red;
+
+        }
+        .s2{
+            border-style: dotted;
+            border-width: 10px;
+
+        }
+   </style>
+    
+</head>
+<body>
+    <table>
+        <script>
+            for(var b=1;b<11;b++){
+                if(b%2==0){
+                    document.write("<tr>"+"<td class=s2>"+b+"</td>"+"</tr>"); 
+
+                }
+                else{
+                    document.write("<tr>"+"<td class=s1>"+b+"</td>"+"</tr>"); 
+
+                }
+                           
+            }
+        </script>
+
+        <script>
+            var num=1;
+            for(var b=1;b<11;b++){
+                document.write("<tr>");
+                for(var a=1;a<11;a++){
+                    document.write("<td>"+num+"</td>");
+                    num++;
+                }
+                document.write("</tr>");              
+            }
+        </script>
+
+    </table>
+
+
+    <script>
+        obj={ "a":100, "b":"abc", "c":[10,20] };
+        document.write(obj.a +"<br/>"); // 100
+        document.write(obj["b"] +"<br/>"); // abc
+        document.write(obj.c[1] +"<br/>");
+        document.write(obj.c[0] +"<br/>");  
+    </script>
+    <script>
+        a=[10,20,30,40,50];
+        for(var b=0;b<a.length;b++){
+            document.write(a[b] +"<br/>");
+    
+        }
+    </script>
+
+    <script>
+        a=["기린","사자","토끼","코끼리"];
+        a=["장미","튤립","복숭화","데이지"];
+        list={"동물":a,"식물":b};
+        for(var b=0;b<a.length;b++){
+            document.write(a[b] +"<br/>");
+
+        }
+    </script>
+
+    <script>
+        a=[10,20,30];
+        for(index in a){
+            document.write(a[index]+"<br/>");
+        }
+    </script>
+
+    <script>
+        obj={ "a":100, "b":"abc", "c":200 };
+        for(key in obj)
+        document.write(obj[key]+"<br/>");
+    </script>
+
+
+    <ol>
+        <li> 동물
+            <ol type='a'>
+                <li>기린</li>
+                <li>시지</li>
+                <li>코끼리</li>
+                <li>얼룩말</li>
+            </ol>
+        </li>
+
+        <li> 꽃
+            <ol type='a'>
+                <li>장미</li>
+                <li>데이지</li>
+                <li>튤립</li>
+            </ol>
+        </li>
+    </ol>
+
+    <script>
+        a=["기린","사자","토끼","코끼리"];
+        a=["장미","튤립","복숭화","데이지"];
+        list={"동물":a,"식물":b};
+
+        document.write("<ol>");
+        for(key in list){
+            document.write("<li>"+key+"<br/>"+"</li>")
+        }
+        document.write("</ol>")
+    </script>
+
+
+    <script>
+        a=["기린","사자","토끼","코끼리"];
+        a=["장미","튤립","복숭화","데이지"];
+        list={"동물":a,"식물":b};
+
+        document.write("<ol>");
+        for(key in list){
+            document.write("<li>"+key+"<br/>"+"</li>")
+          
+        }
+        document.write("</ol>")
+    </script>
+
+
+                
+   
+    
+</body>
+</html>

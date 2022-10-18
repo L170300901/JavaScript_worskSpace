@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var dataset = {
+            "memberlist": [
+                { "id": "a1", "pw": "b1", "addr": "c1", "tel": "d1" },
+                { "id": "a2", "pw": "b2", "addr": "c2", "tel": "d2" },
+                { "id": "a3", "pw": "b3", "addr": "c3", "tel": "d3" }
+            ],
+            "emplist": [
+                { "empno": "a4", "ename": "b4" },
+                { "empno": "a5", "ename": "b5" },
+                { "empno": "a6", "ename": "b6" }
+            ]
+        };
+        for (var member of dataset.memberlist) {
+            document.write(member.id + "<br/>");
+        }
+        for (var emp of dataset.emplist) {
+            document.write(emp.empno + "<br/>");
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

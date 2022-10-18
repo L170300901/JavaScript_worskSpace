@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td {
+            border: 1px solid navy;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            for (var n = 1; n < 11; n++) {
+                var txtObj = document.querySelector("#txt" + n);
+                txtObj.onfocus = f1;
+                txtObj.onblur = f2;
+            }
+        }
+        function f1() { this.style.backgroundColor = "green"; }
+        function f2() { this.style.backgroundColor = ""; }
+    </script>
+</head>
+
+<body>
+    <script>
+
+        for (var a = 1; a < 11; a++)
+            document.write("<input type=text id=txt" + a + ">");
+    </script>
+
+</body>
+
+</html>

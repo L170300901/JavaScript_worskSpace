@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var dataset = null;
+        window.onload = function () {
+            init();
+            b1.onclick = f;
+        }
+        function init() {
+            dataset = [
+                { "id": "id1", "pw": "pw1", "addr": "addr1", "tel": "tel1" },
+                { "id": "id2", "pw": "pw2", "addr": "addr2", "tel": "tel2" },
+                { "id": "id3", "pw": "pw3", "addr": "addr3", "tel": "tel3" },
+                { "id": "id4", "pw": "pw4", "addr": "addr4", "tel": "tel4" },
+                { "id": "id5", "pw": "pw5", "addr": "addr5", "tel": "tel5" }
+            ];
+        }
+        function f() {
+            let str = "";
+            const infoList = dataset.filter(e => e.id === txt1.value)
+            if (infoList.length === 0) {
+                str = "존재하지않는 ID";
+            }
+            else {
+                for (let info of infoList) {
+                    str += ('<ol>');
+                    for (let member in info) {
+                        str += ('<li>' + member.toUpperCase() + " : " + info[member] + '</li><br>');
+                    };
+                    str += ('</ol>');
+                }
+            }
+            result.innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    ID : <input type="text" id="txt1">
+    <button type="button" id="b1">회원정보보기</button>
+    <div id="result"></div>
+
+</body>
+
+</html>

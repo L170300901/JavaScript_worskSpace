@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        window.onload = function () {
+            document.f.b.onclick = f;
+        }
+        function f() {
+            var str = document.f.sel.value;
+            document.f.txt.value = str;
+        }
+    </script>
+
+</head>
+
+<body>
+    <form name="f">
+
+        <select name="sel" size=3 multiple>
+            <option value="archi">건축공학과</option>
+            <option value="mechanic">기계공학과</option>
+            <option value="indust">산업공학과</option>
+            <option value="elec">전기전자공학과</option>
+            <option value="computer">컴퓨터공학과</option>
+            <option value="chemical">화학공학과</option>
+        </select>
+        <input type="button" value="선택된것은?" name="b">
+        <input type="text" name="txt">
+    </form>
+
+
+
+
+</body>
+
+</html>

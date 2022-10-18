@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <script>
+
+        window.onload = function () {
+
+            btn.onclick = function () {
+
+                var a = new Date(
+
+                    txt1.value,
+
+                    txt2.value - 1,
+
+                    txt3.value
+
+                );
+
+                var index = a.getDay();
+
+                var day_array = ["일", "월", "화", "수", "목", "금", "토"];
+
+                txt4.value = day_array[index];
+
+            }
+
+        }
+
+    </script>
+
+    <body>
+
+        <input type="text" id="txt1">년
+
+        <input type="text" id="txt2">월
+
+        <input type="text" id="txt3">일
+
+        <input type="button" value="요일구하기" id="btn">
+
+        <input type="text" id="txt4">요일
+
+    </body>
+
+</html>

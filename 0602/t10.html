@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=´utf-8´>
+    <meta http-equiv=´X-UA-Compatible´ content=´IE=edge´>
+    <title>Page Title</title>
+    <meta name=´viewport´ content=´width=device-width, initial-scale=1´>
+    <script>
+        window.onload = function () {
+            b.onclick = function () {
+                var txt2 = window.parent.frames[1].document.getElementById("txt");
+                txt2.value = txt.value;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <input type="button" value="보내기" id="b">
+</body>
+
+</html>

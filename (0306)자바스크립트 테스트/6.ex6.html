@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function clickFunc(tdTag) {
+
+            console.log(tdTag);
+            var b1Td = tdTag.previousSibling;
+            var b2Td = b1Td.previousSibling;
+
+            var a1Td = b2Td.previousSibling;
+            var a2Td = a1Td.previousSibling;
+            console.log(b1Td);
+            console.log(b2Td);
+            console.log(a1Td);
+            console.log(a2Td);
+            a2Td.style.backgroundColor = "orange";
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td onclick="clickFunc(this)">C</td>
+            <td>D</td>
+        </tr>
+    </table>
+</body>
+
+</html>

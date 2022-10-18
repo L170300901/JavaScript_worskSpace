@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            b1.onclick = f;
+            b2.onclick = f;
+
+        }
+        function f() {
+
+            switch (this.value) {
+                case "윈도우파일": printFilename(txt1.value); break;
+                case "리눅스파일": printFilename(txt2.value); break;
+            }
+
+        }
+        function printFilename(str) {
+            var index = str.lastIndexOf("\\");
+            if (index == -1) index = str.lastIndexOf("/");
+            var fn = str.substring(index + 1);
+            spanTag.innerHTML = fn;
+        }
+    </script>
+</head>
+
+<body>
+    윈도우경로 : <input type="text" id="txt1" value="c:\test1\a.java"><br />
+    리눅스경로 : <input type="text" id="txt2" value="/test1/test2/abc.gif"><br />
+    <input type="button" value="윈도우파일" id="b1"><br />
+    <input type="button" value="리눅스파일" id="b2"><br />
+    파일명 ==> <span id="spanTag"> 버튼누르면 이곳에 파일이름이 찍혀요~</span>
+</body>
+
+</html>

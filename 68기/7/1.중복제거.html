@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style type="text/css">
+        td {
+            border: 1px solid navy;
+        }
+    </style>
+    <script>
+
+        function f() {
+            for (var v of selTag.options) {
+                if (v.value == txt.value) {
+                    return;
+                }
+            }
+            var optionTag = document.createElement("option");
+            optionTag.innerHTML = txt.value;
+            selTag.appendChild(optionTag);
+        }
+    </script>
+</head>
+
+<body>
+
+    <select id="selTag" size="10">
+        <option>건축공학과</option>
+        <option>기계공학과</option>
+        <option>산업공학과</option>
+        <option>전기전자공학과</option>
+        <option>컴퓨터공학과</option>
+    </select>
+    <input type="button" value="학과추가" onclick="f()">
+    <input type="text" id="txt" value="화학공학과">
+
+</body>
+
+</html>

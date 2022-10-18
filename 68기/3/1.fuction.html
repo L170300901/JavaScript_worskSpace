@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+    <script>
+        function printGugudan(v) {
+            for (i = 1; i < 10; i++) {
+                document.write(v + "*" + i + "=" + v * i + "<br/>");
+            }
+        }
+        printGugudan(5);
+        document.write("<br>");
+        printGugudan(7); 
+    </script>
+    <br />
+    <script>
+        function addFunc(n1, n2) {
+            document.write(n1 + "+" + n2 + "=" + (n1 + n2));
+        }
+        addFunc(10, 20);
+        document.write("<br>");
+        addFunc(5, 3);
+    </script>
+    <br />
+    <script>
+        n1 = prompt("첫번째 숫자를 입력하세요", 10);
+        n2 = prompt("두번째 숫자를 입력하세요", 20);
+        document.write(parseInt(n1) + parseInt(n2));
+    </script>
+    <br />
+    <script>
+        function addFunc(n1, n2) {
+            return (n1 + n2);
+        }
+
+        document.write(addFunc(1, 5));
+        document.write("<br>");
+        document.write(addFunc(2, 7));
+
+    </script>
+</body>
+
+</html>

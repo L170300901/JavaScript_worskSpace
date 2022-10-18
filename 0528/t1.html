@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='animalUtil.js'></script>
+    <script src='mathUtil.js'></script>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid #ccc;
+    }
+
+    td,
+    th {
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        font-size: 20px;
+        text-align: center;
+        color: rgb(255, 47, 168);
+        font-weight: 1000;
+
+    }
+</style>
+<script>
+    function f10() {
+        var buffer = [];
+        var colorArray = ["red", "green", "orange"];
+        colorArray.forEach(function (str) {
+            buffer.push("<input type=button value=" + str + "><br/>");
+        });
+        buttonContainer.innerHTML = buffer.join("");
+    }
+</script>
+
+<body>
+    <script>
+        var dataSet = [
+            { "id": "id1", "pw": "pw1", "addr": "addr1", "tel": "tel1" },
+            { "id": "id2", "pw": "pw2", "addr": "addr2", "tel": "tel2" },
+            { "id": "id3", "pw": "pw3", "addr": "addr3", "tel": "tel3" }
+        ];
+        document.write("<table>");
+
+        dataSet.forEach(function (member) {
+            document.write("<tr>");
+            document.write("<td>" + member.id + "</td>");
+            document.write("<td>" + member.pw + "</td>");
+            document.write("</tr>");
+        });
+        document.write("</table>")
+
+        document.write("<br/>")
+
+        var a = [10, 20, 30];
+        var b = a.join("&&&");
+        document.write(a);
+        document.write("<br/>");
+        document.write(b);
+        document.write(typeof (b));
+
+        document.write("<br/>")
+
+        function Car(str) {
+            this.color = str;
+            this.toString = f;
+        }
+        function f() {
+            return "자동차색상:" + this.color;
+        }
+        var car = new Car("orange");
+        document.write(car);
+    </script>
+
+    <script>
+        var a = new Array(10, 20, 30);
+        var b = [40, 50];
+        Array.prototype.toString = function () {
+            return this[1];
+        }
+        document.write(a);
+        document.write("<br/>");
+        document.write(b);
+    </script>
+
+    </script>
+    </head>
+
+    <body>
+        <script>
+            var dog = new Dog("뚱이");
+            var cat = new Cat("아치", 10);
+            document.write(dog); // 개,뚱이
+            document.write("<br/>");
+            document.write(cat); // 고양이, 아치, 10
+        </script>
+
+        <script>
+            function MyMath(num1, num2) {
+                this.max = max;
+                this.min = min;
+
+                function max() {
+                    if (num1 > num2) {
+                        return num1
+                    }
+                    else return num2
+                }
+                function min() {
+                    if (num1 > num2) {
+                        return num2
+                    }
+                    else return num1
+                }
+            }
+            var math1 = new MyMath(10, 5);
+            document.write(math1.max()); // 10
+            document.write("<br/>");
+            document.write(math1.min()); // 5
+        </script>
+        <br />
+
+        <script>
+            window.onload = function () {
+                b0.onclick = f;
+                b1.onclick = f;
+                b2.onclick = f;
+            }
+            function f() {
+                this.style.backgroundColor = this.value;
+            }
+        </script>
+        </head>
+
+        <body>
+            <script>
+                var colorArray = ["red", "green", "orange"];
+                colorArray.forEach(function (str, index) {
+                    document.write("<input type=button ");
+                    document.write("value=" + str + " id='b" + index + "' ><br/>");
+                });
+            </script>
+
+
+        </body>
+
+
+        <input type="button" value="버튼생성" onclick="f10()">
+        <div id="buttonContainer">
+        </div>
+
+</html>
+/\

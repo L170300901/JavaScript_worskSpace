@@ -1,0 +1,18 @@
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+td,
+th {
+    width: 50px;
+    height: 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(255, 47, 168)
+}
+input[type=text] {
+    width: 100px;
+    height: 18px;
+}

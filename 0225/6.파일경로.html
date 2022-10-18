@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function printFilename() {
+            var index = txt.value.lastIndexOf("\\");
+            if (index == -1) index = txt.value.lastIndexOf("/");
+            var filename = txt.value.substring(index + 1);
+            spanTag.innerHTML = filename;
+        }
+    </script>
+</head>
+
+<body>
+    <!--
+        c:\test1\a.java
+        /test1/test2/abc.gif
+        -->
+    <input type="text" id="txt" value="c:\test1\a.java"><br />
+    <input type="button" value="파일명출력" onclick="printFilename()"><br />
+    파일명 ==> <span id="spanTag"> 버튼누르면 이곳에 파일이름이 찍혀요~</span>
+</body>
+
+</html>

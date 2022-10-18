@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <style>
+        .s1 { text-decoration:overline;}
+        .s2 { text-decoration:underline;}
+        .s3 { text-decoration:line-through;}
+    </style>
+    <script>
+        window.onload=function(){
+            b1.onclick=f1;
+            b2.onclick=f2;
+            b3.onclick=f3;
+        }
+        function f1(){
+            word.style.textDecoration="overline";
+        }
+        function f2(){
+            word.style.textDecoration="underline";
+        }
+        function f3(){
+            word.style.textDecoration="line-through";
+        }
+    </script>
+</head>
+<body>
+    <h1 class="s1">overline</h1>
+    <h1 class="s2">underline</h1>
+    <h1 class="s3">line-through</h1>
+    <h1 id="word">글자</h1>
+    <input type="button" value="overline" id="b1">
+    <input type="button" value="underline" id="b2">
+    <input type="button" value="line-through" id="b3">
+</body>
+</html>

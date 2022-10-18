@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        function check(bxTag, id) {
+            if (bxTag.checked) {
+                var selTag = document.createElement('select');
+                for (var a = 0; a < 3; a++) {
+                    var opTag = document.createElement('option');
+                    opTag.innerHTML = a + 1;
+                    selTag.appendChild(opTag);
+                }
+                id.appendChild(selTag);
+                //formTag.appendChild(selTag);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="formTag">
+        <script>
+            var menu = ['라면', '떡볶이', '돈까스'];
+            for (var a = 0; a < menu.length; a++) {
+                document.write(' <input type =text value =' + menu[a] + '>');
+                document.write(
+                    '<input type = checkbox onclick = check(this,' + 'divTag' + a + ')>'
+                );
+                document.write("<div id='divTag" + a + "'></div>");
+            }
+        </script>
+    </form>
+</body>
+
+</html>

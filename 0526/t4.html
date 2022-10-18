@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=´utf-8´>
+    <meta http-equiv=´X-UA-Compatible´ content=´IE=edge´>
+    <title>Page Title</title>
+    <meta name=´viewport´ content=´width=device-width, initial-scale=1´>
+    <style>
+        td {
+            border: 1px solid navy;
+            width: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            b1.onclick = f1;
+        }
+        function f1() {
+            var newTr = document.createElement("tr");
+            var newTd = document.createElement("td");
+            var inputTag = document.createElement("input");
+            inputTag.type = "button";
+            inputTag.value = "X";
+            inputTag.onclick = f2;
+
+            newTd.innerHTML = "빈칸생성";
+            newTd.style.textAlign = "right";
+            newTr.appendChild(newTd);
+            newTd.appendChild(inputTag);
+
+            var tdTag = this.parentNode;
+            var trTag = tdTag.parentNode;
+            var tableTag = trTag.parentNode;
+            tableTag.insertBefore(newTr, trTag.nextSibling);
+        }
+        function f2() {
+            var tdTag = this.parentNode;
+            var trTag = tdTag.parentNode;
+            var tableTag = trTag.parentNode;
+            tableTag.removeChild(trTag);
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><input type="button" value="상세보기" id="b1"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="상세보기" id="b2"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="상세보기" id="b3"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cal_Styler.css">
+    <script src="Cal_Function.js"></script>
+</head>
+
+<body>
+    <select id="sel1">
+        <script>
+            for (let i = 1900; i <= 2100; i++)
+                document.write("<option>" + i + "</option>");
+        </script>
+    </select>년
+
+    <select id="sel2">
+        <script>
+            for (let i = 1; i <= 12; i++)
+                document.write("<option>" + i + "</option>");
+        </script>
+    </select>월
+    <button onclick="Btn()" id="btn">달력 생성</button>
+
+    <table id="tableTag">
+        <!-- <table id="trTag">
+            <tr id="trTag">
+                <td id="tdTag">1</td>
+            </tr>
+        </table> -->
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            buttonTag.onclick = clickFunc;
+        }
+        function clickFunc() {
+            var n1 = parseInt(txt1.value);
+            var n2 = parseInt(txt2.value);
+            if (sel.value == "+") {
+                txt3.value = n1 + n2;
+            }
+            else if (sel.value == "-") {
+                txt3.value = n1 - n2;
+            }
+            else if (sel.value == "*") {
+                txt3.value = n1 * n2;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <input type="text" id="txt1">
+    <select id="sel">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+    </select>
+    <input type="text" id="txt2">
+    <input type="button" value="결과보기" id="buttonTag" onclick="console.log(sel.value)">
+    <input type="text" id="txt3">
+
+</body>
+
+</html>

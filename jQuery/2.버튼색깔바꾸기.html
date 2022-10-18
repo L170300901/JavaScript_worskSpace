@@ -1,0 +1,167 @@
+
+
+
+
+<html>
+    <head>
+    
+    </head>
+    <body topmargin=0>
+    <!-- 동물정의 -->
+    <div style="position:absolute; left:0px; top:80px" id="img1"><img src="rabbit.gif" id="race1" ></div>
+    <div style="position:absolute; left:0px; top:145px" id="img2"><img src="tail.gif"  id="race2"></div>
+    <div style="position:absolute; left:0px; top:210px" id="img3"><img src="horn.gif" id="race3"></div>
+    <div style="position:absolute; left:0px; top:270px" id="img4"><img src="tut.gif"  id="race4"></div>
+    <br><br><br>
+    <table><tr><td>
+    <!-- 경기장 정의 -->
+    <img src="ror.gif"     width="1440" height="250" id="bk1" style="display:none" >
+    <img src="bk_nat.gif"  width="1440" height="250" id="bk2" style="display:none" >
+    <img src="bk_wood.gif" width="1440" height="250" id="bk3" style="display:none" >
+    <img src="bk_sand.gif" width="1440" height="250" id="bk4" style="display:none" >
+    <img src="bk_gb.gif"   width="1440" height="250" id="bk5" style="display:none" >
+    <img src="bk_tr.gif"   width="1440" height="250" id="bk6" style="display:none" >
+    </td>
+    </tr>
+    </table>
+    <input type="button" onclick="gogo();" value=" 출발! >> ">
+    <input type="button" onclick="top.location.reload();" value=" 경기장변경 ">
+    </body>
+    <script language="javascript">
+        var rate = 3;
+        
+        var user = new Array(4); 
+        user[0] = "토끼";
+        user[1] = "지렁이";
+        user[2] = "달팽이";
+        user[3] = "거북이";
+        
+        var speed = new Array(4);
+        speed[0] = new Array(4);
+        speed[1] = new Array(4);
+        speed[2] = new Array(4);
+        speed[3] = new Array(4);
+    
+        var rally = new Array(4); 
+        rally[0] = 0;
+        rally[1] = 0;
+        rally[2] = 0;
+        rally[3] = 0;
+    
+    
+    
+         //화면 왼쪽에서 출발, 3/1 지점까지 1단계속도, 2/1 지점까지 2단계 속도, 나머지는 3단계 속도
+        var goal = 1400;  // 경기장 길이
+    
+        var goal1 = goal / 4;
+        var goal2 = goal / 2;
+        var goal3 = goal *3 / 4;
+    
+        var gage = 0;  // 단계
+        var best = 0;  //제일 빠른놈
+        var j = 0;
+    
+        var player = new Array(4);
+        var rac = new Array(4);
+        var jump =0;
+    
+        var winner =0;
+    
+    
+        // 경기장 랜덤 선택
+        var obj= Math.floor(Math.random()*(6))+1;
+        document.getElementById("bk" + obj).style.display = "block";
+    
+    
+        // 버튼누르면 출발함
+        function gogo () {
+            // ? 또 누르면
+            //각 단계별 속도를 지정함
+            for(var i=0; i<4; i++) {
+                for(var j=0; j<4; j++) {
+                    if(obj==1 && i==0) {
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1)+.5;
+                    } else if(obj==2 && i==3) {
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1)+.5;
+                    } else if(obj==3 && i==2) {
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1)+.5;
+                    } else if(obj==4 && i==1) {
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1)+.5;
+                    } else if(obj==5) {
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1)+.5;
+                    } else {	 
+                        speed[i][j] = Math.random()*(1) + Math.random()*(j+1);
+                    }
+                }
+            }
+            race();
+    
+        }
+        // 경기 진행
+        function race () {
+        
+            // 동물의 DIV
+            player[0] = document.getElementById("img1");
+            player[1] = document.getElementById("img2");
+            player[2] = document.getElementById("img3");
+            player[3] = document.getElementById("img4");
+            
+            // 동물의 이미지
+            rac[0] = document.getElementById("race1");
+            rac[1] = document.getElementById("race2");
+            rac[2] = document.getElementById("race3");
+            rac[3] = document.getElementById("race4");
+            
+            if (gage < goal) { // 결승선 통과를 안했다면
+                //단계별 속도변화 제일 빠른 동물 기준
+                if(gage >goal1) j=1;
+                if(gage >goal2) j=2;
+                if(gage >goal3) j=3;
+    
+                for(var i=0; i<4; i++) {
+                    jump +=1
+                    rally[i] += speed[i][j];
+                    if(best <rally[i]) { 
+                        best = rally[i];  //젤빠른놈
+                        winner = i;
+                    }
+     
+                    // 현재 위치에 따라 표시
+                    player[i].style.left=rally[i]+"px";  // 현재 위치
+                    if (i==0) {
+                        player[i].style.top=80+(i*50)- Math.abs(Math.sin((jump+rally[i])/50))*30+"px";  // 토끼의 움직임
+                    } else if (i==1) {
+                        rac[i].style.width=60 - Math.abs(Math.sin((jump+rally[i])/50))*20+"px"; // 벌레의 움직임
+                        rac[i].style.height=38;
+                    } else if (i==2) {
+                        player[i].style.top=110+(i*50)- Math.abs(Math.sin((jump+rally[i])/50))*10+"px";  // 달팽이의 움직임
+                        rac[i].style.height=38 - Math.abs(Math.cos((jump+rally[i])/50))*10+"px";
+                    } else if (i==3) {
+                        player[i].style.top=110+(i*50)+ Math.abs(Math.sin((jump+rally[i])/70))*10+"px";  // 거북이의 움직임
+                    } 	
+    
+                     
+                } // for
+                
+                gage = best;
+                setTimeout("race()",10);  // 이것은 무엇일꼬?
+             } else {
+                // 경기 종료
+                alert(user[winner] + "가 이겼습니다 !");
+                 for(var i=0; i<4; i++) {
+                     rally[i] = 0;
+                     gage=0;
+                     best=0;
+    
+    
+                    // 현재 위치에 따라 표시
+                    player[i].style.left=rally[i]+"px";  // 현재 위치
+     
+                     
+                 }
+             }
+    
+        }
+    
+    </script>
+    </html>

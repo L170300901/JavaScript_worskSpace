@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <script src='main.js'></script>
+        <style>
+            table, th, td {
+                border:1px solid #ccc;
+            }		
+            td, th {
+                padding:10px;   /* 셀 테두리와 내용 사이의 간격(패딩) */
+                text-align: center; /*p376쪽*/
+                font-size:20px;
+                color: rgb(255, 47, 168)
+            }
+        </style>
+    </head>
+    <body>
+
+       
+        <!-- 1. 2X3테이블 만들기 
+                <table border="1px">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                </table>
+        -->
+        <!-- 2. 3X2테이블 만들기
+                <table border="1px">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                </table>
+        -->
+
+         <!-- 3. 2개의 픽셀 합치기 colspan 사용
+
+            <table border="1px">
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td colspan="2">3</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+            </table>
+
+         -->
+
+          <!-- 4. 칸 옆으로 합치기 연습 -(1) 
+            <table border="1px">
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td colspan="3">3</td>
+                </tr>
+                <tr>
+                    <td colspan="2">4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td colspan="2">8</td>
+                    <td colspan="2">9</td>
+                    <td>10</td>
+                </tr>
+            </table>
+         -->
+        
+
+         <!-- 칸 세로로 합치기 연습 --(1)
+             <table border="1px">
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td rowspan="2">6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                </tr>
+            </table>
+
+        -->
+
+         <!-- 칸 세로와 가로 합치기 연습 
+            <table border="1px">
+                <tr>
+                    <td rowspan=3>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td colspan=3>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>9</td>
+                    <td rowspan=2>10</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td colspan=2>13</td>
+                    <td>14</td>
+                </tr>
+            </table>
+        -->
+        <table border="1px">
+            <tr>
+                <td rowspan=3>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td colspan=3>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>9</td>
+                <td rowspan=2>10</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td colspan=2>13</td>
+                <td>14</td>
+            </tr>
+        </table>
+
+        
+        
+            
+            
+            
+
+
+                
+                
+            
+            
+            
+    </body>
+</html>

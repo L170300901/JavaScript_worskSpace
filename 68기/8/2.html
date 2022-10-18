@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td {
+            border: 1px navy solid;
+            text-align-last: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            b.onclick = createCalendar;
+            pre.onclick = function () {           //1월이 되면 년도변경
+                if (sel2.value == 1) {
+                    sel1.value--; sel2.value = 12;
+                } else { sel2.value--; }
+                createCalendar();
+            }
+            next.onclick = function () {         //12월이 되면 년도변경
+                if (sel2.value == 12) {
+                    sel1.value++; sel2.value = 1;
+                } else { sel2.value++; }
+                createCalendar();
+            }
+
+        }
+        function createCalendar() {
+            tableTag.innerHTML = "";                        //달력 초기화
+
+            var titleTr = document.createElement("tr");           //요일 줄 생성
+            var array = ["일", "월", "화", "수", "목", "금", "토"];
+            for (var c = 0; c < 7; c++) {
+                var titleTd = document.createElement("td");
+                titleTd.innerHTML = array[c];
+                titleTr.appendChild(titleTd);
+            }
+            tableTag.appendChild(titleTr);
+
+
+            var firstday = new Date(sel1.value, sel2.value - 1, 1);
+            var lastday = new Date(sel1.value, sel2.value, 0);
+            var last_date = lastday.getDate();
+            var first_day = firstday.getDay();
+
+            var num = [];                                   //날짜배열 생성
+            for (var j = 0; j < first_day; j++)
+                num.push(" ");
+            for (var i = 1; i <= last_date; i++)
+                num.push(i);
+
+
+            var index = 0;                                //달력 생성
+            for (var r = 0; r < num.length / 7; r++) {
+                var trTag = document.createElement("tr");
+                for (var c = 0; c < 7; c++) {
+                    var tdTag = document.createElement("td");
+                    tdTag.id = "td" + index;
+                    index++;
+                    trTag.appendChild(tdTag);
+                }
+                tableTag.appendChild(trTag);
+            }
+
+
+            for (var index = 0; index < num.length; index++) {          //날짜 입력
+                var td = document.getElementById("td" + index);
+                td.innerHTML = num[index];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <select id="sel1">
+        <script>
+            for (var y = 1900; y <= 2022; y++)
+                document.write("<option>" + y + "</option>");
+        </script>
+    </select>년
+    <select id="sel2">
+        <script>
+            for (var m = 1; m <= 12; m++)
+                document.write("<option>" + m + "</option>");
+        </script>
+    </select>월
+    <input type="button" value="달력만들기" id="b">
+    <input type="button" value="△" id="pre">
+    <input type="button" value="▽" id="next">
+    <table id="tableTag"></table>
+</body>
+
+</html>

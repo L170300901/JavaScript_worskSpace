@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=´utf-8´>
+    <meta http-equiv=´X-UA-Compatible´ content=´IE=edge´>
+    <title>Page Title</title>
+    <meta name=´viewport´ content=´width=device-width, initial-scale=1´>
+    <style>
+        td {
+            border: 1px solid navy;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            buttonTag.onclick = f;
+        }
+        function f() {
+            olTag.removeChild(target);
+        }
+    </script>
+</head>
+
+<body>
+    <ol id="olTag">
+        <li>aa</li>
+        <li id="target">bb</li>
+        <li>cc</li>
+    </ol>
+    <input type="button" value="삭제" id="buttonTag">
+</body>
+
+</html>

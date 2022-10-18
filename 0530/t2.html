@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .s1,
+        .s2 {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            border: 1px solid navy;
+        }
+
+        .s1 {
+            line-height: 5em;
+        }
+
+        .s3 {
+            font-weight: bolder;
+        }
+
+        .s4 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            f(divTag1);
+            f(divTag2);
+        }
+        function f(divTag) {
+            var str = "";
+            for (var a = 0; a < 20; a++)
+                str += "fjdkslajf;ajfklajfaj;fsakfj;ajfasiorpqwirjfs;<br/>";
+            divTag.innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="divTag1" class="s1"></div>
+    <div id="divTag2" class="s2"></div>
+    <div class="s3">글자1</div><br />
+    <div class="s4">글자2</div><br />
+</body>
+
+</html>

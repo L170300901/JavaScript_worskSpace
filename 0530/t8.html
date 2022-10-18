@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script>
+        window.onload = function () {
+            formTag = document.forms[0];
+            size = formTag.elements.length;
+            formTag.elements[size - 2].onclick = f;
+        }
+
+        function f() {
+            var str = "";
+            for (var i = 0; i < 3; i++)
+                if (formTag.elements[i].checked)
+                    str = str + formTag.elements[i].value + ",";
+
+            formTag.elements[size - 1].value = str;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+
+        <input type="checkbox" value="pig">돼지
+        <input type="checkbox" value="cat">고양이
+        <input type="checkbox" value="dog">개
+        <input type="button" value="좋아하는 동물은?">
+        <input type="text">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+
+        window.onload = function () {   
+            
+            initButton();
+            b1.onclick = clickFunc;
+            b2.onclick = clickFunc;
+            b3.onclick = clickFunc;
+        }
+
+        function initButton() {
+            var array = ["red", "green", "blue"];
+            var buffer = [];
+            array.forEach(function (item, index) {
+                buffer.push("<input type=button value=" + item + " id=b" + (index + 1) + ">");
+            });
+            buttonContainer.innerHTML = buffer.join("");
+        }
+        function clickFunc() {
+            txt.style.background = this.value;
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" value="ABC" id="txt">
+
+    <div id="buttonContainer"></div>
+</body>
+
+</html>

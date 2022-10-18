@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        window.onload = function () {
+            document.f.b.onclick = f;
+        }
+        function f() {
+            var list = document.f.sel.selectedOptions;
+            let output = "";
+            var size = list.length;
+            for (var a = 0; a < size; a++)
+            output += list[a].label;
+            document.f.txt.value=output;
+        }
+       
+    </script>
+</head>
+
+<body>
+    <form name="f">
+        <select name="sel" multiple>
+            <option>aa</option>
+            <option>bb</option>
+            <option>cc</option>
+        </select>
+        <input type="button" value="선택된것은?" name="b">
+        <input type="text" name="txt">
+    </form>
+</body>
+
+</html>

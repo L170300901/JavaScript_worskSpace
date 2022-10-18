@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <style>
+        .s1{background-color: pink;}
+    </style>
+    <script>
+        function f1(button){
+            txt.style.backgroundColor=button.value;
+        }
+        function f2(v){
+            document.write(v);
+        }
+        
+    </script>
+</head>
+<body>
+   
+    <input type="button" value="red" id="b1" onclick="f1(b1)">
+    <input type="button" value="green" id="b2" onclick="f1(b2)">
+    <input type="button" value="blue" id="b3" onclick="f1(b3)"> 
+    <input type="text" class="s1" id="txt">
+    
+    <input type="button" value="abc" id="b1" onclick="f2('def')">
+</body>
+</html>

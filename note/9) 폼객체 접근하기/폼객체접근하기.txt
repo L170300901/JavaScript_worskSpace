@@ -1,0 +1,476 @@
+# select태그 -> select.html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        document.f.b.onclick=f;
+    }
+    function f(){
+        var str=document.f.sel.value;
+        document.f.txt.value=str;
+    }
+    </script>
+</head>
+<body>
+<form name="f">
+    <select name="sel">
+        <option>aa</option>
+        <option>bb</option>
+        <option>cc</option>
+    </select>
+    <input type="button" value="선택된것은?" name="b">
+    <input type="text" name="txt">
+</form>    
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload=function(){
+            document.f.b.style.backgroundColor="orange";
+            //document.forms["f"].elements["b"].style.backgroundColor="orange";
+            document.querySelector("#txt").style.backgroundColor="green";
+            //document.getElementById("txt").style.backgroundColor="green";
+        }
+    </script>
+</head>
+<body>
+<form name="f">
+<input type="button" name="b">
+<input type="text" id="txt">
+</form> 
+</body>
+</html>
+
+
+# select(), focus()
+
+[ex] 문서가 로드되자마자 포커스가 
+두번째박스에 들어가 있게 해주세요~
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        //here
+    }
+    </script>
+</head>
+<body>
+<form>   
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</form>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        document.forms[0].elements[1].focus();
+    }
+    </script>
+</head>
+<body>
+<form>   
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</form>
+</body>
+</html>
+
+[ex] 첫번째박스에 주민번호 앞자리 6자리를 입력한뒤
+자동으로 포커스가 두번째박스로 옮겨지게 하려면?
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        window.onload=function(){
+        }
+        </script>        
+    </head>
+<body>
+    <h1>주민번호입력하세요~</h1>
+    <form name="f">
+        <input type="text" name="txt1">-
+        <input type="text" name="txt2">
+    </form>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        window.onload=function(){
+            document.f.txt1.onkeyup=keyUpFunc;
+        }
+        function keyUpFunc(){
+            if(this.value.length==6)
+            document.f.txt2.focus();
+        }
+        </script>        
+    </head>
+<body>
+    <h1>주민번호입력하세요~</h1>
+    <form name="f">
+        <input type="text" name="txt1">-
+        <input type="text" name="txt2">
+    </form>
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        document.forms[0].elements[0].select();
+    }
+    </script>
+</head>
+<body>
+<form>   
+    <input type="text" value="aaaa">
+</form>
+</body>
+</html>
+
+
+# select태그의 onchange이벤트
+
+select태그
+https://developer.mozilla.org/ko/docs/Web/API/HTMLSelectElement
+option태그
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        sel.onchange=function(){
+            document.bgColor=this.value;
+        }
+    }
+    </script>
+</head>
+<body>
+<select id="sel">   
+    <option>선택해주세요~</option>
+    <option>red</option>
+    <option>green</option>
+    <option>blue</option>
+</select>
+</body>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        document.f.b.onclick=f;
+    }
+    function f(){
+        var list=document.f.sel.selectedOptions;
+        var size=list.length;
+        var str="";
+        for(var a=0; a<size; a++)
+        str=str+list[a].value+",";
+        document.f.txt.value=str;
+    }
+    </script>
+</head>
+<body>
+<form name="f">
+    <select name="sel" multiple>
+        <option>aa</option>
+        <option>bb</option>
+        <option>cc</option>
+    </select>
+    <input type="button" value="선택된것은?" name="b">
+    <input type="text" name="txt">
+</form>    
+</body>
+</html>
+
+[ex] 텍스트에 과목을 입력한뒤 버튼을 누르면
+"select"태그에 새로운과목이 추가되게 하세요~
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/add
+
+<h1>::: 개설된 과목리스트 :::</h1>
+<form>
+    <select size=10>
+        <option>XML</option>
+        <option>JSP</option>
+        <option>Javascript</option>
+        <option>Jquery</option>
+    </select>
+    <input type="text">
+    <input type="button" value="과목추가"> 
+</form>
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        document.f.b.onclick=clickFunc;
+    }
+    function clickFunc(){
+        var str=document.f.txt.value;
+        var optionTag=document.createElement("option");
+        optionTag.innerHTML=str;
+        document.f.sel.add(optionTag,0);
+    }
+    </script>
+</head>
+<body>
+    <h1>::: 개설된 과목리스트 :::</h1>
+    <form name="f">
+        <select size=10 name="sel">
+            <option>XML</option>
+            <option>JSP</option>
+            <option>Javascript</option>
+            <option>Jquery</option>
+        </select>
+        <input type="text" name="txt">
+        <input type="button" value="과목추가" name="b"> 
+    </form> 
+</body>
+</html>
+
+# frame태그
+[ex]
+<!DOCTYPE html>
+<html>
+<frameset rows="30%,*">
+    <frame src="t1.html"/>
+    <frame src="t2.html"/>
+</frameset>
+</html>
+
+[ex]
+<!DOCTYPE html>
+<html>
+<frameset rows="30%,*">
+    <frame src="t1.html"/>
+    <frameset cols="30%,*">
+        <frame src="t2.html"/>
+        <frame src="t3.html"/>
+    </frameset>
+</frameset>
+</html>
+   
+[ex]
+frame2.html
+========
+<frameset rows="30%,*">
+    <frame src="t1.html"/>
+    <frameset cols="30%,*">
+        <frame src="t2.html"/>
+        <frame src="t3.html" name="contentFrame"/>
+    </frameset>
+</frameset>
+
+t1.html
+=====
+<!DOCTYPE html>
+<html>
+<body>
+    <a href="http://www.naver.com" target="_blank">네이버</a><br/>
+    <a href="http://www.daum.net" target="_top">다음</a><br/>
+    <a href="http://www.seoulit.co.kr" target="contentFrame">서울It교육센터</a><br/>
+    <a href="test1.html" target="_self">문서</a><br/>
+</body>
+</html>
+
+
+
+# 객체
+
+1 사용자정의객체 
+2 DOM   태그==> 객체
+3 js내장객체   Array객체, Math, Date, 
+4 브라우져객체
+
+# window객체
+
+[ex]
+window1.html
+=========
+<!DOCTYPE html>
+<html>
+<frameset rows="30%,*">
+    <frame src="t10.html"/>
+    <frame src="t11.html"/>
+</frameset>
+</html>
+
+t10.html
+======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        b.onclick=function(){
+        var txt2=window.parent.frames[1].document.getElementById("txt");
+        txt2.value=txt.value;
+        }
+    }        
+    </script>
+    </head>
+<body>
+<input type="text" id="txt">
+<input type="button" value="보내기" id="b">
+</body>
+</html>
+
+t11.html
+======
+<input type="text" id="txt">
+
+
+[ex]
+window1.html
+=========
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        b1.onclick=f1;
+        b2.onclick=f2;
+    }        
+    function f1(){
+        window.open("t12.html","newwin",
+        "width=200px height=200px");
+    }
+    function f2(){
+        
+    }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">   
+<input type="button" value="새창열기" id="b1">   
+<input type="button" value="새창닫기" id="b2"> 
+</body>
+</html>
+
+
+t12.html
+======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        b1.onclick=f1;
+        b2.onclick=f2;
+    }        
+    function f1(){
+        window.close();
+    }
+    function f2(){
+        window.opener.close();
+    }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">   
+<input type="button" value="현재창닫기" id="b1">   
+<input type="button" value="이전창닫기" id="b2"> 
+</body>
+</html>
+
+
+[ex] 
+window2.html
+==========
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    window.onload=function(){
+        b1.onclick=f1;
+        b2.onclick=f2;
+    }        
+    function f1(){
+        newwin=window.open("t12.html","newwin",
+        "width=200px height=200px");
+        newwin.document.getElementById("txt").value=txt.value;
+    }
+    function f2(){
+        newwin.close();
+    }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">   
+<input type="button" value="새창열기" id="b1">   
+<input type="button" value="새창닫기" id="b2"> 
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=´utf-8´>
+    <meta http-equiv=´X-UA-Compatible´ content=´IE=edge´>
+    <title>Page Title</title>
+    <meta name=´viewport´ content=´width=device-width, initial-scale=1´>
+    <script>
+        window.onload = function () {
+            sel.onchange=function(){
+                    document.bgColor=this.value; 
+                    alert(this.value);
+                          
+                }
+        }
+    </script>
+</head>
+
+<body>
+    <select id="sel">
+        <option>--선택해주세요--</option>
+        <option>red</option>
+        <option>green</option>
+        <option>blue</option>
+    </select>
+</body>
+
+</html>

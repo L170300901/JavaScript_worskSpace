@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function random_team_maker() {
+            //수강 총 학생
+            var student_full_cnt = 6;
+            //1팀당 할당 인원
+            var team_rate = 2;
+            //check
+            var index = new Array();
+            //임의의 팀 순서
+            var team_array = new Array();
+            //팀번호
+            var team_no = new Array();
+            //팀장구분 (0: 팀원, 1: 팀장)
+            var team_leader = new Array();
+
+            var team_no_count = 0;
+            var team_count = 0;
+            var loop_cnt = 0;
+            //랜덤
+            while (true) {
+
+                //random
+                var ranData = Math.floor(Math.random() * student_full_cnt);
+                //value
+                if (index[ranData] == null) {
+                    index[ranData] = ranData;
+
+                    ///////////////////////////////////////////////////////
+                    team_array[team_count] = ranData;
+                    team_count++;
+                    team_no[ranData] = team_no_count + 1;
+                    if (loop_cnt == 0) {
+                        team_leader[ranData] = 1;
+                    } else {
+                        team_leader[ranData] = 0;
+                    }
+
+                    loop_cnt++;
+                    if (loop_cnt == team_rate) {
+                        loop_cnt = 0;
+                        team_no_count++;
+                    }
+                    ///////////////////////////////////////////////////////
+                }
+                //check
+                var tmpSize = 0;
+                for (var i = 0; i < index.length; i++) {
+                    if (index[i] != null) {
+                        tmpSize++;
+                    }
+                }
+                //break
+                if (tmpSize == student_full_cnt) break;
+            }
+
+            alert("팀 구성 순서" + team_array);
+            alert("팀 랜덤 순서" + index);
+            alert("팀 번호 순서" + team_no);
+            alert("팀 리더 순서" + team_leader);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" onClick="javascript:random_team_maker();" value="test"></input>
+</body>
+
+</html>

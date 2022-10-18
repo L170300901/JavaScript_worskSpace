@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <script>
+        function f1(){
+            document.write(100);
+        };
+        function f2(){
+            document.write(200);
+        };
+        function add(a,b){
+            document.write("("+a+")");
+            document.write("+");
+            document.write("("+b+")");
+            document.write("=");
+            document.write(a+b);
+        };
+
+
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" value="abc">
+        <button>입력</button>
+    </form>
+    
+    <br/>
+    
+    <script>
+       add(10,20);
+       document.write("<br>");
+       add(5,-9);
+    </script>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f1() {
+            txt.value = txt.value.toUpperCase();
+        }
+        function f2() {
+            txt.value = (txt.value.charAt(0).toUpperCase()) + txt.value.substring(1);
+        }
+        function f3() {
+            txt.value = txt.value.toLowerCase();
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <input type="button" value="대문자로바꾸기" onclick="f1()">
+    <input type="button" value="문자한개만대문자로바꾸기" onclick="f2()">
+    <input type="button" value="소문자로만들기" onclick="f3()">
+</body>
+
+</html>

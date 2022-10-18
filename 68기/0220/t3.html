@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            document.f1.t1.style.background = "red";
+            document.querySelector("#t2").style.background = "orange";
+            document.forms[0].elements[2].style.background = "yellow";
+            document.forms["f2"].elements["t4"].style.background = "green"
+            document.forms[1].elements[1].style.background = "blue";
+            document.forms[1].elements[2].style.background = "navy";
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f1">
+        <input type="text" name="t1">
+        <input type="text" id="t2">
+        <input type="text" name="t3">
+    </form>
+    <form name="f2">
+        <input type="text" name="t4">
+        <input type="text" name="t5">
+        <input type="text" name="t6">
+    </form>
+</body>
+
+</html>

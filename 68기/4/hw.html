@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <!--
+        for문을 이용해서 주석처리부분처럼 출력되게 하세요~
+        <script>
+            var array={
+                "꽃":["장미","데이지","튤립"],
+                "동물":["기린","사자","토끼","코끼리"]
+            };
+        </script>
+        
+        참고 사이트:https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp
+    -->
+    <script>
+
+        var array = {
+            "꽃": ["장미", "데이지", "튤립"],
+            "동물": ["기린", "사자", "토끼", "코끼리"]
+        };
+        document.write("<ol>");
+        for (var key in array) {
+            document.write("<li>" + key + "</li><ul>");
+            for (var v of array[key])
+                document.write("<li>" + v + "</li>");
+            document.write("</ul>");
+        }
+        document.write("</ol>");
+    </script>
+</body>
+
+</html>

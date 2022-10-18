@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <style type="text/css">
+        td {
+            border: 1px solid navy;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            createTable();
+        }
+        function createTable() {
+            var num = 1;
+            for (var r = 0; r < 3; r++) {
+                var trTag = document.createElement("tr");
+                for (var c = 0; c < 5; c++) {
+                    var tdTag = document.createElement("td");
+                    tdTag.innerHTML = num++;
+                    trTag.appendChild(tdTag);
+                    tdTag.onclick = clickFunc;
+                }
+                tableTag.appendChild(trTag);
+            }
+        }
+        function clickFunc() {
+            this.parentNode.style.background = "tomato";
+        }
+    </script>
+</head>
+
+<body>
+    <table id="tableTag">
+    </table>
+</body>
+
+</html>

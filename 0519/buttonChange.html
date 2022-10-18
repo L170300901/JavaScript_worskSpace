@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=´utf-8´>
+    <meta http-equiv=´X-UA-Compatible´ content=´IE=edge´>
+    <title>Page Title</title>
+    <meta name=´viewport´ content=´width=device-width, initial-scale=1´>
+    <script>
+        function f(b) {
+            b.style.backgroundColor = b.value;
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        var array = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+        for (var index in array) {
+            document.write("<input type=button");
+            document.write(" value=" + array[index]);
+            document.write(" onclick=f(this)>");
+        }
+    </script>
+</body>
+
+</html>

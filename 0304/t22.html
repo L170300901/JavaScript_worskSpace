@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+        // window.onload = function () {
+        //     b1.onclick = function () {
+        //         var txt2 = window.parent.frames[1].document.getElementById("txt");
+        //         txt2.value = txt.value;
+        //     }
+        // }        
+        function f1(color) {
+            console.log(color);
+            var bodyTagg = window.parent.frames[1].document.getElementById("bodyTag");
+            bodyTagg.style.backgroundColor = color;
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="red" id="b1" onclick="f1(this.value)">
+    <input type="button" value="blue" id="b2" onclick="f1(this.value)">
+    <input type="button" value="yellow" id="b3" onclick="f1(this.value)">
+
+</body>
+
+</html>

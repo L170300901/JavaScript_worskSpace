@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+
+        function f() {
+            var obj = document.querySelector("#" + txt.value);
+            obj.style.backgroundColor = "green";
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <input type="button" id="b1" value="버튼1">
+    <input type="button" id="b2" value="버튼2">
+    <input type="text" id="txt">
+    <input type="button" id="b3" value="버튼색변경하기" onclick="f()">
+
+
+</body>
+
+</html>

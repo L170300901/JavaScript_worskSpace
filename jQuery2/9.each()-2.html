@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            var array=[10,20,30];
+            $.each(array,function(index,value){
+                alert(++index+","+value);
+            });
+        });
+        $(document).ready(function(){
+            var obj={"aa":"bb","cc":"dd","ee":"ff"};
+            $.each(obj,function(key,value){
+                alert(key+","+value);
+            });
+        });
+    </script>
+</head>
+<body>
+        
+</body>
+
+</html>

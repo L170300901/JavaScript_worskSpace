@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .s1 {
+            background: tomato;
+            z-index: 4;
+        }
+
+        .s2 {
+            background: yellowgreen;
+            top: 50px;
+            left: 50px;
+        }
+
+        .s3 {
+            background: orange;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            b1.onclick = function () { target.style.visibility = "hidden"; }
+            b2.onclick = function () { target.style.visibility = "visible"; }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="숨기기" id="b1">
+    <input type="button" value="보이기" id="b2">
+    <div class="s1" id="target">AA</div>
+    <div class="s2">BB</div>
+    <div class="s3">CC</div>
+</body>
+
+</html>

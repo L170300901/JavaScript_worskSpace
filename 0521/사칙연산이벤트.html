@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script>
+        function f1() {
+            var n1 = txt1.value;
+            var n2 = txt2.value;
+            txt3.value = parseInt(n1) + parseInt(n2);
+        }
+        function f2() {
+            var n1 = txt1.value;
+            var n2 = txt2.value;
+            txt3.value = n1 -n2;
+        }
+        function f3() {
+            var n1 = txt1.value;
+            var n2 = txt2.value;
+            txt3.value = n1*n2;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="button" value="+"onclick="f1()">
+    <input type="button" value="-"onclick="f2()">
+    <input type="button" value="*"onclick="f3()">
+    <input type="text" id="txt2">
+    <input type="text" id="txt3">
+    </body>
+</html>

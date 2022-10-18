@@ -1,0 +1,35 @@
+<!DOC   TYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <script>
+        window.onload=function(){
+            b1.onclick=f; 
+            b2.onclick=f;
+            b3.onclick=f;
+        }
+        function f(){
+
+            switch(this.value){
+                case "+":txt3.value=parseInt(txt1.value)+parseInt(txt2.value); break;
+                case "-":txt3.value=txt1.value-txt2.value; break;
+                case "*":txt3.value=txt1.value*txt2.value; break;
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1"> 
+    <input type="button" value="+"id="b1">
+    <input type="button" value="-"id="b2">
+    <input type="button" value="*"id="b3">
+    <input type="text" id="txt2"> 
+    <input type="text" id="txt3"> 
+    
+</body>
+</html>

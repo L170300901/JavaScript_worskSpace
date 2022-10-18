@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        td {
+            border: 1px solid pink;
+        }
+    </style>
+    <script>
+        function f1(tag) {
+            tag.style.backgroundColor = "green";
+
+        }
+        function f2(tag) {
+            tag.style.backgroundColor = "";
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <p></p>
+    <script>
+        var cnt = 1;
+        document.write("<table>");
+        for (i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (j = 0; j < 10; j++) {
+                document.write("<td onmouseover=f1(this) onmouseout=f2(this)>" + cnt++ + "</td>");
+
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

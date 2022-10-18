@@ -1,0 +1,168 @@
+# html뜻 15p 웹언어
+
+# html문서작성 37p
+
+
+# 텍스트관련태그 
+
+제목표시 h1~h6  62p  hn.html
+단락만들기 p 62p  p&br.html
+줄바꾸기 br 62 p&br.html
+굵게 표시하기 b, strong(화면낭독기기능) 66p  strong&b.html
+이탤릭체 표시하기 em, i 66p
+형광펜 효과 내기 mark 68p
+목록만들기 ul,ol,li 73p
+
+# 표만들기 
+줄,칸만들기 tr,th,td 80p table1.html
+칸합치기colspan, 줄합치기rowspan 83p colspan.html, rowspan.html
+표구조정의하기 thead,tbody,tfoot  88p,90p
+칼럼스타일지정하기 col, colgroup 92p
+
+# 테스트
+
+[ex1] "보통글자"는 글자색상blue
+"제목글자"는 글자색상pink, 보통글자 보다 더 두껍게 출력되게 하세요~
+그리고 보통글자와 제목글자는 줄바꿈이 되어야합니다.
+<!DOCTYPE html>
+<html>
+<body>
+    보통글자
+    제목글자
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+<body>
+    <p style="color:blue">보통글자</p>
+    <h1 style="color:pink">제목글자</h1>
+</body>
+</html>
+
+
+[ex2] 아래와 같이 정렬해주세요~
+<!DOCTYPE html>
+<html>
+<body>
+    왼쪽정렬
+               가운데정렬
+                             오른쪽정렬
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+<body>
+ <h1>왼쪽정렬</h1>
+ <h2 align="center">가운데정렬</h2>
+ <h3 align="right">오른쪽정렬</h3>
+</body>
+</html>
+
+
+[ex3] 3줄 5칸 테이블을 생성하세요~
+5번칸은 글자색상green으로 배경색상yellow 적용시켜주세요.
+
+
+# css종류 217p
+
+<style type="text/css">
+ h2 { color:red; }
+ .s1 { color:blue; }
+ #s2 { color:green; }
+</style>
+
+<h1 style="color:silver;">aa</h1>
+<h2>bb</h2>
+<h3 class="s1">cc</h3>
+<h4 id="s2">dd</h4>
+
+
+[ex4]  5번, 8번의 배경색상을 orange로 변경하세요~
+단, 스타일의 class를 이용합니다.
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <style type="text/css">
+    td { border:1px solid navy; }
+    </style>
+    </head>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+    </table>
+</body>
+</html>
+[an]
+<!DOCTYPE html>
+<html>
+    <head>
+    <style type="text/css">
+    td { border:1px solid navy; }
+    .s1 { color:orange; }
+    </style>
+    </head>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td class="s1">5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td class="s1">8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+[ex]
+<!DOCTYPE html>
+<html>
+    <head>
+    <style type="text/css">
+    td { border:1px solid navy; }
+    #s1 { color:orange; }
+    </style>
+    </head>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td id="s1">5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td id="s1">8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f1() {
+            t2.value = t1.value;
+
+        }
+        function f2() {
+            t1.value = "";
+            t2.value = "";
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="button" value="복사" onclick="f1()">
+    <input type="button" value="지우기" onclick="f2()">
+    <p>
+        <input type="text" value="ABC" id="t1">
+        <input type="text" id="t2">
+
+</body>
+
+</html>

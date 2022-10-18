@@ -1,0 +1,634 @@
+# 일치연산자
+[ex]
+<script>
+    var a="100";
+    var b=100;
+    console.log(a==b);
+    console.log(a===b);
+</script> 
+
+# 템플릿문자열
+
+[ex]
+    <script>
+    var a=100;
+    document.write("변수 a의 값은 "+a+"입니다.<br/>");
+    document.write(`변수 a의 값은 ${a}입니다.`);
+    </script>   
+
+# 짧은조건문
+
+[ex] 
+"||"연산자는 첫문항이 true이면 뒷문항을 조사하지 않습니다.
+"&&"연산자는 첫문항이 false이면  뒷문항을 조사하지 않습니다.
+    <script>
+    true || alert(1); 
+    false || alert(2); 
+    true && alert(3);  
+    false && alert(4);  
+    </script>
+
+[ex] 짧은 조건문을 활용한 기본매개변수
+    <script>
+    function f(a,b,c){
+        a=a||10;
+        b=b||20;
+        c=c||30;
+        document.write(`${a}, ${b}, ${c}`);
+        document.write("<br/>");
+    }
+    f(5,7);
+    f();
+    </script> 
+
+[ex] 기본매개변수 ES6
+    <script>
+    function f(a=10,b=20,c=30){
+        document.write(`${a}, ${b}, ${c}`);
+        document.write("<br/>");
+    }
+    f(5,7);
+    f();
+    </script> 
+
+# for~of
+
+[ex]
+<script>
+var a=[10,20,30];    
+for(var n of a) document.write(`${n}<br/>`);
+</script> 
+
+# arguments
+
+[ex]
+<script>
+function f(){
+    for(var value of arguments)
+    document.write(`${value}&nbsp;&nbsp;&nbsp;`);
+    document.write("<br/>");
+}   
+f(1); 
+f(2,3); 
+f(4,5,6); 
+</script> 
+
+# 전개연산자 ES6
+[ex]   
+    <script>
+    function f(...numbers){
+        for(var n of numbers)
+        document.write(n+"<br/>");
+    }
+    f(10,20,30);
+    </script>  
+
+[ex]
+    <script>
+    function f(a,b,...numbers){
+        for(var n of numbers)
+        document.write(n+"<br/>");
+    }
+    f(10,20,30,40,50,60);
+    </script>
+
+[ex]
+    <script>
+    function f(a,b,c){
+        document.write(a+"<br>");
+        document.write(b+"<br>");
+        document.write(c+"<br>");
+    }
+    var array=[10,20,30];
+    f(array);
+    </script> 
+
+[ex]
+    <script>
+    function f(a,b,c){
+        document.write(a+"<br>");
+        document.write(b+"<br>");
+        document.write(c+"<br>");
+    }
+    var array=[ 10,20,30];
+    f(...array);
+    </script> 
+
+
+#  Number(), parseInt()
+
+[ex]
+<script>
+var str="3.5";
+document.write(parseInt(str)+"<br/>"); // 3
+document.write(parseFloat(str)+"<br/>"); // 3
+document.write(Number(str)+"<br/>"); // 3.5
+</script> 
+
+[ex]
+<script>
+var won="1000원";
+document.write(parseInt(won)+10+"<br/>"); // 1010
+document.write(Number(won)+10+"<br/>"); // NaN
+</script>  
+
+# 객체의 in : 해당키가 객체안에 있는지 확인할때 사용하는 키워드
+
+[ex]
+    <script>
+    var person={
+        name:"홍길동",
+        eat:function(str){
+            document.write(`${this.name}이 ${str}을(를) 먹는다<br/>`);
+        }
+    };
+    document.write("name" in person);
+    document.write("<br/>");
+    document.write("age" in person);
+    </script>
+
+# 객체의 with 
+
+[ex] 
+    <script>
+    var person={
+        name:"홍길동",
+        eat:function(str){
+            document.write(`${this.name}이 ${str}을(를) 먹는다<br/>`);
+        }
+    };
+    with(person){
+        document.write(name);
+        document.write("<br/>");
+        eat("밥");
+    }
+    </script>
+
+
+# 배열복제
+[ex] 
+    <script>
+        var a=[10,20,30];
+        var b=[];
+        var index=0;
+        for(var num of a)
+        b[index++]=num;
+        document.write(a);
+        document.write("<br/>");
+        document.write(b);
+        a[0]=100;
+        document.write("<br/>원본변경후<br/>");
+        document.write(a);
+        document.write("<br/>");
+        document.write(b);
+        </script> 
+
+
+[ex] 전개연산자를 사용한 배열복제
+<script>
+var a=[10,20,30];
+var b=[...a];
+
+document.write(a);
+document.write("<br/>");
+document.write(b);
+document.write("<br/>");
+a[0]=100;
+document.write("원본변경후<br/>");
+document.write(a);
+document.write("<br/>");
+document.write(b);
+</script>
+
+# prototype
+
+[ex]
+    <script>
+    function Dog(n,a){
+        this.name=n;
+        this.age=a;
+        this.printInfo=function(){
+        return `이름:${this.name},나이:${this.age}`;
+        }
+    }
+    var dog=new Dog("뚱이",10);
+    document.write(dog.printInfo());
+    document.write("<br/>");
+    function Cat(n,a){
+        this.name=n;
+        this.age=a;
+    }
+    Cat.prototype.printInfo=function(){
+        return `이름:${this.name},나이:${this.age}`;
+    }        
+    var cat=new Cat("까미",5);
+    document.write(cat.printInfo());
+    </script> 
+
+# window객체
+[ex]
+    <script>
+    var a=100;
+    document.write(this.a+"<br/>");
+    document.write(window.a+"<br/>");
+    function b(){
+        this.c=300;
+        return 200;
+    }
+    document.write(this.b()+"<br/>");
+    document.write(window.b()+"<br/>");
+    document.write(this.c+"<br/>");
+    document.write(window.c+"<br/>");
+    </script>
+
+# Object객체
+
+[ex]
+<script>
+var object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object1));
+</script>   
+
+# Number객체
+
+[ex]
+<script>
+var numObj = 12345.6789;
+// var numObj=new Number(12345.6789);
+console.log(numObj.toFixed()); 
+// Returns '12346': 반올림하며, 소수 부분을 남기지 않습니다.
+console.log(numObj.toFixed(1));      
+// Returns '12345.7': 반올림합니다.
+console.log(numObj.toFixed(6));      
+// Returns '12345.678900': 빈 공간을 0으로 채웁니다.
+</script> 
+
+# String객체
+
+[ex] charAt, charCodeAt, concat
+<script>
+var str="abcdefgh";
+    //    01234567
+document.write(str.charAt(1)+"<br/>"); // b
+document.write(str.charAt(5)+"<br/>"); // f
+document.write(str.charCodeAt(0)+"<br/>");// 97
+document.write(str.charCodeAt(1)+"<br/>");// 98
+document.write(str.concat("123"))+"<br/>"); // abcdefgh123
+</script> 
+
+[ex] indexOf, lastIndexOf
+<script>
+var paragraph = 'abcabcabc';
+            //        012345678
+var searchTerm = 'bc';
+console.log(paragraph.indexOf(searchTerm));   // 1
+console.log(paragraph.indexOf(searchTerm,1)); // 1
+console.log(paragraph.indexOf(searchTerm,2));   // 4
+console.log(paragraph.indexOf(searchTerm,3));   // 4
+console.log(paragraph.indexOf(searchTerm,4));  // 4
+console.log(paragraph.lastIndexOf(searchTerm));   // 7
+</script>
+
+
+[ex] split
+<script>
+var str = "The quick brown fox jumps over the lazy dog.";
+var words = str.split(" ");
+console.log(words);
+console.log(words[0]);
+console.log(words[1]);
+console.log(words[2]);
+</script>    
+
+[ex] replace
+<script>
+var p = "The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?";
+console.log(p.replace("dog", "monkey"));
+</script>
+
+
+[ex] 위 예문에서 모든 "dog"를 검색해서 "monkey"로 바꾸려면?
+아래 함수를 참고하세요~
+function replaceAll(str, searchStr,replaceStr){
+    return str.split(searchStr).join(replaceStr);
+}
+[an]
+<script>
+function replaceAll(str, searchStr,replaceStr){
+    return str.split(searchStr).join(replaceStr);
+}
+var p = "The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?";
+console.log(replaceAll(p,"dog", "monkey"));
+</script>
+
+
+[ex] 위예문에서 replaceAll함수를 String객체에 등록해주세요~
+<script>
+var p = "The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?";
+//here
+console.log(p.replaceAll("dog", "monkey")); 
+</script>
+[an]
+<script>
+var p = "The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?";
+String.prototype.replaceAll=function(searchStr,replaceStr){
+    return this.split(searchStr).join(replaceStr);
+}
+console.log(p.replaceAll("dog", "monkey"));
+</script>
+
+
+[ex] substring
+<script>
+var str = 'Mozilla Firefox';
+          //0 123456789
+console.log(str.substring(1, 3));  
+console.log(str.substring(2));   
+</script>
+
+
+[ex] toLowerCase, toUpperCase
+<script>
+var sentence = 'The quick brown fox jumps over the lazy dog.';
+console.log(sentence.toUpperCase()); 
+console.log(sentence.toLowerCase()); 
+</script>
+
+
+[ex] 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+function f(buttonTag){
+    if(buttonTag.value=="대문자"){
+    txt2.value=txt1.value.toUpperCase();
+    buttonTag.value="소문자"
+    }else{
+    txt2.value=txt1.value.toLowerCase();
+    buttonTag.value="대문자"
+    }
+}
+    </script>
+</head>
+<body>
+<h1>첫번째박스에 대소문자 구분없는 문자열을 입력하세요~</h1>
+<input type="text" id="txt1">  <br/>
+<input type="button" value="대문자" onclick="f(this)">  <br/>
+<input type="text" id="txt2">
+</body>
+</html>
+
+
+[ex]첫번째박스가 포커스를 잃어버리면 첫번째박스에 입력된 문자열의 
+    첫번째문자한개는 대문자로 나머지문자열은 소문자로 변경해주세요~
+<input type="text" id="txt1">
+<input type="text" id="txt2">
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+window.onload=function(){
+    txt1.onblur=function(){
+    var s1=this.value.charAt(0);
+    var s2=this.value.substring(1);
+    txt1.value=s1.toUpperCase()+s2.toLowerCase();
+    }
+}
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">  
+</body>
+</html>
+
+# Math객체
+
+[ex]
+    <script>
+    console.log(Math.ceil(3.6));    //4   
+    console.log(Math.round(3.6));   //4       
+    console.log(Math.floor(3.6));   //3        
+    </script>
+
+
+[ex] 난수값발생~
+    <script>
+    console.log(Math.random()); //  0과 1사이의 난수값 발생~
+    </script>
+
+
+[ex] 1과 5사이의 정수형의 난수값 발생시키려면
+0.1xxx * 5 = 0.5xxx 
+0.2xxx * 5 = 1.0xxx
+0.3xxx * 5 = 1.5xxx
+0.4xxx * 5 = 2.0xxx
+0.5xxx * 5 = 2.5xxx
+0.6xxx * 5 = 3.0xxx
+0.7xxx * 5 = 3.5xxx
+0.8xxx * 5 = 4.0xxx
+0.9xxx * 5 = 4.5xxx
+
+    <script>
+    console.log(Math.ceil(Math.random()*5)); 
+    </script>
+
+[ex]
+<h1>1과 3사이의 정수값을 첫번째박스에 입력하세요~</h1>
+나의 숫자 : <input type="text" id="txt1"><br/>
+컴퓨터의 숫자 : <input type="text" id="txt2" disabled><br/> 
+<input type="button" value="결과확인"><br/>
+<span>버튼을 누르면 결과가 출력됩니다~^^</span>
+[an]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f(){
+        if(isNaN(txt1.value)){
+            txt2.value="숫자형식오류~";return;
+        }
+        if(txt1.value<1 || txt1.value>3){
+            txt2.value="숫자범위오류~";return;
+        }
+        var rNum=Math.ceil(Math.random()*3);
+        txt2.value=rNum;
+        spanTag.innerHTML= (txt2.value==txt1.value) ? 
+                    "행운을 잡으셨군요":"꽝! 다음기회를~";
+    }
+    </script>
+    </head>
+<body>
+    <h1>1과 3사이의 정수값을 첫번째박스에 입력하세요~</h1>
+    나의 숫자 : <input type="text" id="txt1"><br/>
+    컴퓨터의 숫자 : <input type="text" id="txt2" disabled><br/> 
+    <input type="button" value="결과확인" onclick="f()"><br/>
+    <span id="spanTag">버튼을 누르면 결과가 출력됩니다~^^</span>  
+</body>
+</html>
+
+
+# Date객체
+
+[ex] 177p
+<script>
+var now=new Date();
+console.log(now.getFullYear());
+console.log(now.getMonth()+1);
+console.log(now.getDate());
+console.log(now.getDay());
+</script>
+
+[ex] 일주일 후의 시간 구하기
+    <script>
+var now=new Date();
+now.setDate(now.getDate()+7);
+console.log(now.getFullYear());
+console.log(now.getMonth()+1);
+console.log(now.getDate());
+        </script>
+
+
+[ex] 날짜간격 구하기 (180p참고)
+<script>
+var now=new Date();  // 2020/6/4
+var before=new Date(2020,5,1);  // 2020/6/1
+var interval=now.getTime()-before.getTime();
+interval=Math.floor(interval/(1000*60*60*24));
+console.log(interval+"일");
+</script>
+
+
+# 문서객체의 속성지정
+
+[ex] 웹브라우져에서 다음 소스코드를 지원하지 않는다면 
+setAttribute메서드사용 
+
+<script>
+window.onload=function(){
+ var fontTag=document.createElement("font");
+ //fontTag.color="red";
+ fontTag.setAttribute("color","red");
+}
+</script>
+<body id="bodyTag">
+<!--   <font color="red">aaa</font>   -->
+</body>
+
+# 이벤트등록과 제거
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f1(){
+        target.onclick=f3;
+    }
+    function f2(){
+        target.onclick=null;
+    }
+    function f3(){ alert(1); }
+    </script>
+</head>
+<body>
+<input type="button" value="이벤트등록" onclick="f1()">    
+<input type="button" value="이벤트제거" onclick="f2()">    
+<input type="button" id="target">    
+</body>
+</html>
+
+# 이벤트강제발생
+
+[ex]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    function f1(){
+        target.onclick();
+    }
+    function f2(){ alert(1); }
+    </script>
+</head>
+<body>
+<input type="button" value="이벤트강제실행" onclick="f1()">    
+<input type="button" id="target" onclick="f2()">    
+</body>
+</html>
+
+
+# 예외
+
+[ex]
+<script>
+    try{
+    document.write(num);
+    }catch(e){
+        console.log("예외");
+        console.log(e.message);
+        console.log(e.name);
+    }
+</script> 
+
+[ex]
+<script>
+    try{
+        if(false)
+        throw "Exception1";
+        else
+        throw "Exception2";
+    }catch(e){
+        switch(e){
+        case "Exception1" : console.log(1); break;
+        case "Exception2" : console.log(2); break;
+        }
+    }
+</script> 
+
+[ex] 
+<script>
+    function DB(){
+        this.pwArray=[11,22,33];
+        this.idArray=["aa","bb","cc"];
+    }
+    DB.prototype.login=function(id,pw){
+        
+    }
+    var db=new DB();
+    try{
+    db.login("aa",123);
+    console.log("로그인성공~");
+    }catch(e){
+        if(e=="IDNotFoundException")
+        console.log("존재하지 않는 ID");
+        else if(e=="PWMismatchException")
+        console.log("비번오류");
+    }
+</script>  

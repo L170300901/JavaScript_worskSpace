@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <!-- <form>
+        <input type="text" style="backGround-color:red">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </form> -->
+    <form>
+        <script>
+            var array = ["red", "orange", "yellow", "green"];
+
+            for (var m in array) {
+                console.log(array[m]);
+                document.write("<input type=text style='backGround-color:" + array[m] + "''>");
+                document.write("&nbsp");
+            }
+        </script>
+
+    </form>
+
+
+</body>
+
+</html>

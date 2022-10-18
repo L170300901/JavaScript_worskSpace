@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f1(){ document.write(1+"<br/>"); }
+        function f2(){ document.write(2+"<br/>"); }
+        function f3(a,b,c){ 
+            document.write(a+"<br/>");
+            document.write(b+"<br/>");
+            document.write(c+"<br/>");
+         }
+        function max(a,b){
+            result= a>b?a:b;
+            return result;
+        }
+        function min(a,b){
+            result= a>b?b:a;
+            return result;
+        }
+</script>
+    </script> 
+</head>
+<body>
+    
+    
+    <script>
+        f1();
+        f2();
+        f3(100,200,300);
+    
+
+    </script>
+
+    
+    <script>
+        result1=max(1,2);
+        result2=min(1,2);
+        document.write("최대값:"+result1);
+        document.write("<br/>");
+        document.write("최소값:"+result1);
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            b1.onclick = function () {
+                b3.style.backgroundColor = this.value;
+            }
+            b2.onclick = function () {
+                b3.style.backgroundColor = this.value;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="button" id=b1 value="orange"><br />
+    <input type="button" id=b2 value="tomato"><br />
+    <input type="button" id=b3 value="색상변경해주세요~">
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<style>
+    fieldset{
+        width: 200px;
+    }
+    table{
+        width: 180px;
+        height: 300px;
+    }
+    td{
+        border:0.1px solid navy;
+    }
+    .s1{
+       
+        text-align: "center";
+        display: none;
+    }
+    .t1{
+        background-color: #EAEAEA;
+        border:1px solid black;
+        width: 175px;
+        height: 35px;
+    }
+    .c1{
+        background-color:"";
+    }
+</style>
+<script>
+window.onload=function(){
+    b1.onclick=Calculator;
+    txt1.onkeypress=function() {
+        if(event.keyCode=="13"){
+           result();
+        }
+    };
+}
+var check=false;
+function Calculator(){
+    if(this.value=="열기"){
+        this.value="접기";
+        divTag.style.display="block";
+        fs.style.height="380px"
+        txt1.focus();
+    }
+    else{
+        this.value="열기";
+        divTag.style.display="none";
+        fs.style.height="";
+    }
+    if(!check){
+        alert("Enter를 치면 결과를 볼수 있어요!!");
+        let componet=[
+         "(",")","%","AC",
+         "7","8","9","/",
+         "4","5","6","*",
+         "1","2","3","-",
+         "0",".","=","+"
+        ];
+        let num=0;
+        let div=document.getElementById("divTag");
+        let table=document.createElement("table");
+        for(i=0;i<5;i++){
+        let tr=document.createElement("tr");
+            for(j=0;j<4;j++){
+                let td=document.createElement("td");
+                td.innerHTML=componet[num++];
+                if(i==0||(i==1&&j==3)||(i==2&&j==3)||(i==3&&j==3)||(i==4&&j!=0)){
+                    td.style.background="#8C8C8C";
+                    if(td.innerHTML=="="){
+                        td.onclick=result;
+                        td.style.background="#8C8C8C";
+                    }
+                    else if(td.innerHTML=="AC"){
+                        td.onclick=reset;
+                    }
+                    else{
+                        td.onclick=add;
+                    }
+                }
+                else{
+                    td.onclick=add;
+                    td.style.background="#C4BE8A";
+                }
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        table.style.textAlign="center";
+        div.appendChild(table);
+        div.align="center";
+        check=true;
+    }
+}
+function add(){
+    txt1.value+=this.innerHTML;
+    txt1.focus();
+}
+function result(){
+    let text=document.getElementById("txt1");
+    let str=text.value;
+    let size=str.length;
+    let en=/[a-zA-Z]/;
+    let ko=/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+    let enCheck=en.test(str);
+    let koCheck=ko.test(str);
+    if(enCheck || koCheck){
+        reset();
+        alert("문자는 입력하시면 안됩니다.");
+    }
+    else{
+    text.value=eval(text.value);
+    text.focus();
+    }
+}
+function reset(){
+    txt1.value="";
+    txt1.focus();
+}
+</script>
+</head>
+<body>
+<div align="center">
+    <fieldset id="fs" align="center" class="c1">
+        <legend align="center">계산기</legend>
+        <div id="divTag" class="s1">
+            <input type="text" id="txt1" class="t1">
+        </div>
+        <input type="button" id="b1" value="열기">
+    </fieldset>
+</div>
+</body>
+</html>

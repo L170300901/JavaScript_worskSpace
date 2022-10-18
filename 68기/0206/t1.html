@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <script>
+        jumsu = prompt("점수를 입력하시오");
+        if (jumsu >= 90) {
+            grade = "A";
+        }
+        else if (90 > jumsu >= 80) {
+            grade = "B";
+
+        }
+        else if (80 > jumsu >= 70) {
+            grade = "C";
+        }
+        else {
+            grade = "F";
+        }
+        document.write(grade + "학점");
+    </script>
+
+</body>
+
+</html>

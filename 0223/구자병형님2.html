@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function () {
+            c1.onclick = cal;
+            m1.onclick = menu
+        }
+
+        function cal() {
+            var sum = 0;
+            for (var m = 0; m < 5; m++) {
+                if (document.forms[0].elements[m].checked)
+                    //console.log((document.forms[0].elements[m].value).split(',')[1]);
+                    sum += parseInt((document.forms[0].elements[m].value).split(',')[1]);
+            }
+            txt1.value = "가격 : " + sum + "원";
+        }
+        function menu() {
+            var str = "";
+            for (var m = 0; m < 5; m++) {
+                if (document.forms[0].elements[m].checked)
+                    //console.log((document.forms[0].elements[m].value).split(',')[0]);
+                    str += (document.forms[0].elements[m].value).split(',')[0] + ",";
+            }
+
+            txt2.value = str.substr(0, str.length - 1);
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <script>
+            var mArray = {
+                "오뎅": 500,
+                "호떡": 1000,
+                "김밥": 1500,
+                "떡볶이": 2000,
+                "순대": 2500
+            };
+            for (var m in mArray) {
+                document.write("<input type=checkbox value=" + (m + ',' + mArray[m]) + ">");
+                document.write(m + "&nbsp");
+                document.write(" " + mArray[m] + " ");
+                document.write("<br/>");
+            }
+        </script>
+        <input type="button" value="메뉴" id="m1">
+        <input type="text" id="txt2"><br />
+
+        <input type="button" value="계산" id="c1">
+        <input type="text" id="txt1">
+    </form>
+</body>
+
+</html>

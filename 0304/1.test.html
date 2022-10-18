@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+        window.onload = function () {
+            var array = ["진주시", "창원시", "마산시"];
+            var olTag = document.createElement("ol");
+            array.forEach(function (city) {
+                var liTag = document.createElement("li");
+                var aTag = document.createElement("a");
+                aTag.href = "#"
+                aTag.innerHTML = city;
+                aTag.onclick = clickFunc;
+                olTag.appendChild(liTag);
+                liTag.appendChild(aTag);
+            });
+            container.appendChild(olTag);
+        }
+        function clickFunc() {
+            txt.value = this.innerHTML;
+        }
+        function closeFunc() {
+            window.opener.document.getElementById("txt").value = txt.value;
+            window.close();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <input type="text" id="txt">
+    <input type="button" value="닫기" onclick="closeFunc()">
+</body>
+
+</html>

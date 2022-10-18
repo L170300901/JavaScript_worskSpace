@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function f() {
+            window.parent.frames[0].document.bgColor = "orange";
+        }
+        function f2() {
+            window.parent.frames[0].location.href = "http://www.naver.com";
+        }
+    </script>
+</head>
+
+<body bgcolor="black">
+    <h1 style="color:white;" onclick="f()">iframe연습중</h1>
+    <input type="button" value="서울IT교육센터" onclick="f2()">
+    <iframe src="t2.html">
+</body>
+
+</html>
